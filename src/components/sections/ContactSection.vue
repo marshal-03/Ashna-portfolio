@@ -1,0 +1,80 @@
+<script setup lang="ts">
+import { profile, socials } from '@/data/portfolio'
+import SocialIcon from '@/components/ui/SocialIcon.vue'
+</script>
+
+<template>
+  <section id="contact" class="contact">
+    <div class="container contact__inner">
+      <p class="eyebrow">Have an event in mind?</p>
+      <h2 class="contact__title">Let’s Talk</h2>
+      <a :href="`mailto:${profile.email}`" class="contact__email">{{ profile.email }}</a>
+      <div class="contact__socials">
+        <a
+          v-for="s in socials"
+          :key="s.kind"
+          :href="s.url"
+          target="_blank"
+          rel="noopener"
+          :aria-label="s.label"
+        >
+          <SocialIcon :kind="s.kind" />
+        </a>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style scoped>
+.contact {
+  padding: var(--section-gap) 0;
+  background: radial-gradient(
+    ellipse 60% 70% at 50% 100%,
+    rgba(91, 69, 217, 0.45),
+    transparent 70%
+  );
+  scroll-margin-top: 70px;
+}
+
+.contact__inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.5rem, 12vw, 9rem);
+  line-height: 1;
+  margin: 1rem 0 1.5rem;
+}
+
+.contact__email {
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  border-bottom: 1px solid var(--color-primary-hover);
+  padding-bottom: 4px;
+  overflow-wrap: anywhere;
+}
+
+.contact__email:hover {
+  color: #c9c0ff;
+}
+
+.contact__socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.contact__socials a {
+  width: 3rem;
+  height: 3rem;
+  transition: transform 0.2s var(--ease);
+}
+
+.contact__socials a:hover {
+  transform: translateY(-3px);
+}
+</style>

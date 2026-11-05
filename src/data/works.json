@@ -1,0 +1,1019 @@
+[
+  {
+    "slug": "dark-fantasy",
+    "name": "Sunfeast Dark Fantasy",
+    "subtitle": "ITC \u00b7 Party with SRK",
+    "cover": "/works/dark-fantasy/stage/dark-fantacy-stage-camera-2.webp",
+    "coverThumb": "/works/dark-fantasy/stage/dark-fantacy-stage-camera-2-sm.webp",
+    "zones": [
+      {
+        "name": "Stage",
+        "slug": "stage",
+        "items": [
+          {
+            "title": "Dark Fantacy stage camera 2",
+            "kind": "render",
+            "src": "/works/dark-fantasy/stage/dark-fantacy-stage-camera-2.webp",
+            "thumb": "/works/dark-fantasy/stage/dark-fantacy-stage-camera-2-sm.webp",
+            "width": 2000,
+            "height": 1080
+          },
+          {
+            "title": "Dark Fantacy stage",
+            "kind": "render",
+            "src": "/works/dark-fantasy/stage/dark-fantacy-stage.webp",
+            "thumb": "/works/dark-fantasy/stage/dark-fantacy-stage-sm.webp",
+            "width": 2000,
+            "height": 1081
+          },
+          {
+            "title": "STAGE DESIGN CENTER LED 31x14.9ft",
+            "kind": "render",
+            "src": "/works/dark-fantasy/stage/stage-design-center-led-31x14-9ft.webp",
+            "thumb": "/works/dark-fantasy/stage/stage-design-center-led-31x14-9ft-sm.webp",
+            "width": 2000,
+            "height": 952
+          },
+          {
+            "title": "STAGE DESIGN SIDE LED 31x14.9ft -01",
+            "kind": "render",
+            "src": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-01.webp",
+            "thumb": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-01-sm.webp",
+            "width": 2000,
+            "height": 952
+          },
+          {
+            "title": "STAGE DESIGN SIDE LED 31x14.9ft -02",
+            "kind": "render",
+            "src": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-02.webp",
+            "thumb": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-02-sm.webp",
+            "width": 2000,
+            "height": 952
+          },
+          {
+            "title": "STAGE DESIGN SIDE LED 31x14.9ft -03",
+            "kind": "render",
+            "src": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-03.webp",
+            "thumb": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-03-sm.webp",
+            "width": 2000,
+            "height": 251
+          },
+          {
+            "title": "STAGE DESIGN SIDE LED 31x14.9ft -04",
+            "kind": "render",
+            "src": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-04.webp",
+            "thumb": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-04-sm.webp",
+            "width": 2000,
+            "height": 141
+          }
+        ]
+      },
+      {
+        "name": "Entry Arch",
+        "slug": "entry-arch",
+        "items": [
+          {
+            "title": "Dark Fantacy Entry Arch",
+            "kind": "render",
+            "src": "/works/dark-fantasy/entry-arch/dark-fantacy-entry-arch.webp",
+            "thumb": "/works/dark-fantasy/entry-arch/dark-fantacy-entry-arch-sm.webp",
+            "width": 2000,
+            "height": 1081
+          },
+          {
+            "title": "ENTRY ARCH TUNNEL SIDE 13X11.6ft",
+            "kind": "render",
+            "src": "/works/dark-fantasy/entry-arch/entry-arch-tunnel-side-13x11-6ft.webp",
+            "thumb": "/works/dark-fantasy/entry-arch/entry-arch-tunnel-side-13x11-6ft-sm.webp",
+            "width": 2000,
+            "height": 1769
+          },
+          {
+            "title": "ENTRY ARCH TUNNEL SIDE 25x10.6ft 2",
+            "kind": "render",
+            "src": "/works/dark-fantasy/entry-arch/entry-arch-tunnel-side-25x10-6ft-2.webp",
+            "thumb": "/works/dark-fantasy/entry-arch/entry-arch-tunnel-side-25x10-6ft-2-sm.webp",
+            "width": 2000,
+            "height": 840
+          }
+        ]
+      },
+      {
+        "name": "Registration Desk",
+        "slug": "registration-desk",
+        "items": [
+          {
+            "title": "Dark Fantacy Registration Desk",
+            "kind": "render",
+            "src": "/works/dark-fantasy/registration-desk/dark-fantacy-registration-desk.webp",
+            "thumb": "/works/dark-fantasy/registration-desk/dark-fantacy-registration-desk-sm.webp",
+            "width": 2000,
+            "height": 1116
+          },
+          {
+            "title": "REGISTRATION DESK BD 14x8ft and FD14 16x8-01",
+            "kind": "render",
+            "src": "/works/dark-fantasy/registration-desk/registration-desk-bd-14x8ft-and-fd14-16x8-01.webp",
+            "thumb": "/works/dark-fantasy/registration-desk/registration-desk-bd-14x8ft-and-fd14-16x8-01-sm.webp",
+            "width": 2000,
+            "height": 1000
+          },
+          {
+            "title": "REGISTRATION DESK BD 14x8ft and FD14 16x8-02",
+            "kind": "render",
+            "src": "/works/dark-fantasy/registration-desk/registration-desk-bd-14x8ft-and-fd14-16x8-02.webp",
+            "thumb": "/works/dark-fantasy/registration-desk/registration-desk-bd-14x8ft-and-fd14-16x8-02-sm.webp",
+            "width": 2000,
+            "height": 313
+          }
+        ]
+      },
+      {
+        "name": "Collaterals",
+        "slug": "collaterals",
+        "items": [
+          {
+            "title": "lanyard and badge",
+            "kind": "render",
+            "src": "/works/dark-fantasy/collaterals/lanyard-and-badge.webp",
+            "thumb": "/works/dark-fantasy/collaterals/lanyard-and-badge-sm.webp",
+            "width": 1280,
+            "height": 853
+          },
+          {
+            "title": "wristband 2",
+            "kind": "render",
+            "src": "/works/dark-fantasy/collaterals/wristband-2.webp",
+            "thumb": "/works/dark-fantasy/collaterals/wristband-2-sm.webp",
+            "width": 1280,
+            "height": 960
+          },
+          {
+            "title": "wristband",
+            "kind": "render",
+            "src": "/works/dark-fantasy/collaterals/wristband.webp",
+            "thumb": "/works/dark-fantasy/collaterals/wristband-sm.webp",
+            "width": 1600,
+            "height": 1600
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "tata-tea",
+    "name": "Tata Tea Premium",
+    "subtitle": "Stage reveal & key visuals",
+    "cover": "/works/tata-tea/stage/tata-tea-stage-2.webp",
+    "coverThumb": "/works/tata-tea/stage/tata-tea-stage-2-sm.webp",
+    "zones": [
+      {
+        "name": "Stage",
+        "slug": "stage",
+        "items": [
+          {
+            "title": "Tata Tea stage 2",
+            "kind": "render",
+            "src": "/works/tata-tea/stage/tata-tea-stage-2.webp",
+            "thumb": "/works/tata-tea/stage/tata-tea-stage-2-sm.webp",
+            "width": 2000,
+            "height": 1080
+          },
+          {
+            "title": "Tata Tea stage",
+            "kind": "render",
+            "src": "/works/tata-tea/stage/tata-tea-stage.webp",
+            "thumb": "/works/tata-tea/stage/tata-tea-stage-sm.webp",
+            "width": 2000,
+            "height": 1081
+          }
+        ]
+      },
+      {
+        "name": "Graphics",
+        "slug": "graphics",
+        "items": [
+          {
+            "title": "Golden Dew Over Sunrise Tea Hills",
+            "kind": "graphic",
+            "src": "/works/tata-tea/graphics/golden-dew-over-sunrise-tea-hills.webp",
+            "thumb": "/works/tata-tea/graphics/golden-dew-over-sunrise-tea-hills-sm.webp",
+            "width": 887,
+            "height": 1774
+          },
+          {
+            "title": "pack-01",
+            "kind": "graphic",
+            "src": "/works/tata-tea/graphics/pack-01.webp",
+            "thumb": "/works/tata-tea/graphics/pack-01-sm.webp",
+            "width": 1201,
+            "height": 1561
+          },
+          {
+            "title": "STAGE pre reveal",
+            "kind": "graphic",
+            "src": "/works/tata-tea/graphics/stage-pre-reveal.webp",
+            "thumb": "/works/tata-tea/graphics/stage-pre-reveal-sm.webp",
+            "width": 2000,
+            "height": 1133
+          },
+          {
+            "title": "stage side",
+            "kind": "graphic",
+            "src": "/works/tata-tea/graphics/stage-side.webp",
+            "thumb": "/works/tata-tea/graphics/stage-side-sm.webp",
+            "width": 1000,
+            "height": 2000
+          },
+          {
+            "title": "STAGE-02",
+            "kind": "graphic",
+            "src": "/works/tata-tea/graphics/stage-02.webp",
+            "thumb": "/works/tata-tea/graphics/stage-02-sm.webp",
+            "width": 2000,
+            "height": 733
+          },
+          {
+            "title": "TATA STAGE-SIDE LED POST REVEAL",
+            "kind": "graphic",
+            "src": "/works/tata-tea/graphics/tata-stage-side-led-post-reveal.webp",
+            "thumb": "/works/tata-tea/graphics/tata-stage-side-led-post-reveal-sm.webp",
+            "width": 842,
+            "height": 2000
+          },
+          {
+            "title": "TTPKV",
+            "kind": "graphic",
+            "src": "/works/tata-tea/graphics/ttpkv.webp",
+            "thumb": "/works/tata-tea/graphics/ttpkv-sm.webp",
+            "width": 2000,
+            "height": 1125
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "coca-cola",
+    "name": "Coca-Cola",
+    "subtitle": "Corporate event",
+    "cover": "/works/coca-cola/stage/20x18-center.webp",
+    "coverThumb": "/works/coca-cola/stage/20x18-center-sm.webp",
+    "zones": [
+      {
+        "name": "Stage",
+        "slug": "stage",
+        "items": [
+          {
+            "title": "20x18 Center",
+            "kind": "render",
+            "src": "/works/coca-cola/stage/20x18-center.webp",
+            "thumb": "/works/coca-cola/stage/20x18-center-sm.webp",
+            "width": 2000,
+            "height": 1800
+          },
+          {
+            "title": "5",
+            "kind": "render",
+            "src": "/works/coca-cola/stage/5.webp",
+            "thumb": "/works/coca-cola/stage/5-sm.webp",
+            "width": 2000,
+            "height": 1081
+          },
+          {
+            "title": "a",
+            "kind": "render",
+            "src": "/works/coca-cola/stage/a.webp",
+            "thumb": "/works/coca-cola/stage/a-sm.webp",
+            "width": 2000,
+            "height": 1081
+          },
+          {
+            "title": "c",
+            "kind": "render",
+            "src": "/works/coca-cola/stage/c.webp",
+            "thumb": "/works/coca-cola/stage/c-sm.webp",
+            "width": 2000,
+            "height": 1081
+          },
+          {
+            "title": "Left Screen 20x16",
+            "kind": "render",
+            "src": "/works/coca-cola/stage/left-screen-20x16.webp",
+            "thumb": "/works/coca-cola/stage/left-screen-20x16-sm.webp",
+            "width": 1440,
+            "height": 1152
+          },
+          {
+            "title": "Right Screen 20x16",
+            "kind": "render",
+            "src": "/works/coca-cola/stage/right-screen-20x16.webp",
+            "thumb": "/works/coca-cola/stage/right-screen-20x16-sm.webp",
+            "width": 1440,
+            "height": 1152
+          }
+        ]
+      },
+      {
+        "name": "Registration Desk",
+        "slug": "registration-desk",
+        "items": [
+          {
+            "title": "registration desk",
+            "kind": "render",
+            "src": "/works/coca-cola/registration-desk/registration-desk.webp",
+            "thumb": "/works/coca-cola/registration-desk/registration-desk-sm.webp",
+            "width": 2000,
+            "height": 1116
+          }
+        ]
+      },
+      {
+        "name": "Photobooth",
+        "slug": "photobooth",
+        "items": [
+          {
+            "title": "2-keep-some-bg-for-this-indoor-event",
+            "kind": "render",
+            "src": "/works/coca-cola/photobooth/2-keep-some-bg-for-this-indoor-event.webp",
+            "thumb": "/works/coca-cola/photobooth/2-keep-some-bg-for-this-indoor-event-sm.webp",
+            "width": 2000,
+            "height": 1125
+          },
+          {
+            "title": "photobooth",
+            "kind": "render",
+            "src": "/works/coca-cola/photobooth/photobooth.webp",
+            "thumb": "/works/coca-cola/photobooth/photobooth-sm.webp",
+            "width": 2000,
+            "height": 1116
+          },
+          {
+            "title": "WhatsApp Image 2026-03-07 at 3.23.59 PM 2-this-one-also-one-indoor-bg",
+            "kind": "render",
+            "src": "/works/coca-cola/photobooth/whatsapp-image-2026-03-07-at-3-23-59-pm-2-this-one-also-one-indoor-bg.webp",
+            "thumb": "/works/coca-cola/photobooth/whatsapp-image-2026-03-07-at-3-23-59-pm-2-this-one-also-one-indoor-bg-sm.webp",
+            "width": 2000,
+            "height": 1125
+          }
+        ]
+      },
+      {
+        "name": "Sitting Area",
+        "slug": "sitting-area",
+        "items": [
+          {
+            "title": "sitting area",
+            "kind": "render",
+            "src": "/works/coca-cola/sitting-area/sitting-area.webp",
+            "thumb": "/works/coca-cola/sitting-area/sitting-area-sm.webp",
+            "width": 2000,
+            "height": 1138
+          }
+        ]
+      },
+      {
+        "name": "Collaterals",
+        "slug": "collaterals",
+        "items": [
+          {
+            "title": "falcon flags",
+            "kind": "render",
+            "src": "/works/coca-cola/collaterals/falcon-flags.webp",
+            "thumb": "/works/coca-cola/collaterals/falcon-flags-sm.webp",
+            "width": 1600,
+            "height": 726
+          },
+          {
+            "title": "tent card name",
+            "kind": "render",
+            "src": "/works/coca-cola/collaterals/tent-card-name.webp",
+            "thumb": "/works/coca-cola/collaterals/tent-card-name-sm.webp",
+            "width": 1600,
+            "height": 676
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "henkel",
+    "name": "Henkel",
+    "subtitle": "Family day & brand history",
+    "cover": "/works/henkel/entry-arch/entry-arch-final-2-01.webp",
+    "coverThumb": "/works/henkel/entry-arch/entry-arch-final-2-01-sm.webp",
+    "zones": [
+      {
+        "name": "Entry Arch",
+        "slug": "entry-arch",
+        "items": [
+          {
+            "title": "Entry arch FINAL .2-01",
+            "kind": "render",
+            "src": "/works/henkel/entry-arch/entry-arch-final-2-01.webp",
+            "thumb": "/works/henkel/entry-arch/entry-arch-final-2-01-sm.webp",
+            "width": 700,
+            "height": 2000
+          },
+          {
+            "title": "Entry arch FINAL .2-02",
+            "kind": "render",
+            "src": "/works/henkel/entry-arch/entry-arch-final-2-02.webp",
+            "thumb": "/works/henkel/entry-arch/entry-arch-final-2-02-sm.webp",
+            "width": 800,
+            "height": 2000
+          },
+          {
+            "title": "Entry arch FINAL .2-03",
+            "kind": "render",
+            "src": "/works/henkel/entry-arch/entry-arch-final-2-03.webp",
+            "thumb": "/works/henkel/entry-arch/entry-arch-final-2-03-sm.webp",
+            "width": 2000,
+            "height": 375
+          },
+          {
+            "title": "Entry arch",
+            "kind": "render",
+            "src": "/works/henkel/entry-arch/entry-arch.webp",
+            "thumb": "/works/henkel/entry-arch/entry-arch-sm.webp",
+            "width": 2000,
+            "height": 1081
+          }
+        ]
+      },
+      {
+        "name": "Registration Desk",
+        "slug": "registration-desk",
+        "items": [
+          {
+            "title": "HENKEL REGISTRATION 2-01",
+            "kind": "render",
+            "src": "/works/henkel/registration-desk/henkel-registration-2-01.webp",
+            "thumb": "/works/henkel/registration-desk/henkel-registration-2-01-sm.webp",
+            "width": 2000,
+            "height": 1250
+          },
+          {
+            "title": "HENKEL REGISTRATION 2-02",
+            "kind": "render",
+            "src": "/works/henkel/registration-desk/henkel-registration-2-02.webp",
+            "thumb": "/works/henkel/registration-desk/henkel-registration-2-02-sm.webp",
+            "width": 2000,
+            "height": 313
+          },
+          {
+            "title": "registration",
+            "kind": "render",
+            "src": "/works/henkel/registration-desk/registration.webp",
+            "thumb": "/works/henkel/registration-desk/registration-sm.webp",
+            "width": 2000,
+            "height": 1081
+          }
+        ]
+      },
+      {
+        "name": "Game Stalls",
+        "slug": "game-stalls",
+        "items": [
+          {
+            "title": "angry bird stall",
+            "kind": "render",
+            "src": "/works/henkel/game-stalls/angry-bird-stall.webp",
+            "thumb": "/works/henkel/game-stalls/angry-bird-stall-sm.webp",
+            "width": 1600,
+            "height": 1600
+          },
+          {
+            "title": "archery stall",
+            "kind": "render",
+            "src": "/works/henkel/game-stalls/archery-stall.webp",
+            "thumb": "/works/henkel/game-stalls/archery-stall-sm.webp",
+            "width": 1600,
+            "height": 1600
+          },
+          {
+            "title": "beat the buss",
+            "kind": "render",
+            "src": "/works/henkel/game-stalls/beat-the-buss.webp",
+            "thumb": "/works/henkel/game-stalls/beat-the-buss-sm.webp",
+            "width": 1600,
+            "height": 1600
+          },
+          {
+            "title": "stalls",
+            "kind": "render",
+            "src": "/works/henkel/game-stalls/stalls.webp",
+            "thumb": "/works/henkel/game-stalls/stalls-sm.webp",
+            "width": 2000,
+            "height": 1081
+          },
+          {
+            "title": "ANGRY BIRDS STALL 8'X8'-01",
+            "kind": "graphic",
+            "src": "/works/henkel/game-stalls/angry-birds-stall-8-x8-01.webp",
+            "thumb": "/works/henkel/game-stalls/angry-birds-stall-8-x8-01-sm.webp",
+            "width": 2000,
+            "height": 2000
+          },
+          {
+            "title": "ANGRY BIRDS STALL 8'X8'-02",
+            "kind": "graphic",
+            "src": "/works/henkel/game-stalls/angry-birds-stall-8-x8-02.webp",
+            "thumb": "/works/henkel/game-stalls/angry-birds-stall-8-x8-02-sm.webp",
+            "width": 2000,
+            "height": 625
+          },
+          {
+            "title": "ARCHERY STALL 8'X8'-01",
+            "kind": "graphic",
+            "src": "/works/henkel/game-stalls/archery-stall-8-x8-01.webp",
+            "thumb": "/works/henkel/game-stalls/archery-stall-8-x8-01-sm.webp",
+            "width": 2000,
+            "height": 2000
+          },
+          {
+            "title": "ARCHERY STALL 8'X8'-02",
+            "kind": "graphic",
+            "src": "/works/henkel/game-stalls/archery-stall-8-x8-02.webp",
+            "thumb": "/works/henkel/game-stalls/archery-stall-8-x8-02-sm.webp",
+            "width": 2000,
+            "height": 625
+          },
+          {
+            "title": "BEAT THE BUZZER STALL 8'X8'-01",
+            "kind": "graphic",
+            "src": "/works/henkel/game-stalls/beat-the-buzzer-stall-8-x8-01.webp",
+            "thumb": "/works/henkel/game-stalls/beat-the-buzzer-stall-8-x8-01-sm.webp",
+            "width": 2000,
+            "height": 2000
+          },
+          {
+            "title": "BEAT THE BUZZER STALL 8'X8'-02",
+            "kind": "graphic",
+            "src": "/works/henkel/game-stalls/beat-the-buzzer-stall-8-x8-02.webp",
+            "thumb": "/works/henkel/game-stalls/beat-the-buzzer-stall-8-x8-02-sm.webp",
+            "width": 2000,
+            "height": 625
+          },
+          {
+            "title": "GIANT CONNECT 4 STALL 8'X8'-01",
+            "kind": "graphic",
+            "src": "/works/henkel/game-stalls/giant-connect-4-stall-8-x8-01.webp",
+            "thumb": "/works/henkel/game-stalls/giant-connect-4-stall-8-x8-01-sm.webp",
+            "width": 2000,
+            "height": 2000
+          },
+          {
+            "title": "GIANT CONNECT 4 STALL 8'X8'-02",
+            "kind": "graphic",
+            "src": "/works/henkel/game-stalls/giant-connect-4-stall-8-x8-02.webp",
+            "thumb": "/works/henkel/game-stalls/giant-connect-4-stall-8-x8-02-sm.webp",
+            "width": 2000,
+            "height": 625
+          },
+          {
+            "title": "RING THE BOTTLE STALL 8'X8'-01",
+            "kind": "graphic",
+            "src": "/works/henkel/game-stalls/ring-the-bottle-stall-8-x8-01.webp",
+            "thumb": "/works/henkel/game-stalls/ring-the-bottle-stall-8-x8-01-sm.webp",
+            "width": 2000,
+            "height": 2000
+          },
+          {
+            "title": "RING THE BOTTLE STALL 8'X8'-02",
+            "kind": "graphic",
+            "src": "/works/henkel/game-stalls/ring-the-bottle-stall-8-x8-02.webp",
+            "thumb": "/works/henkel/game-stalls/ring-the-bottle-stall-8-x8-02-sm.webp",
+            "width": 2000,
+            "height": 625
+          },
+          {
+            "title": "SHOOT BALLOON STALL 8'X8'-01",
+            "kind": "graphic",
+            "src": "/works/henkel/game-stalls/shoot-balloon-stall-8-x8-01.webp",
+            "thumb": "/works/henkel/game-stalls/shoot-balloon-stall-8-x8-01-sm.webp",
+            "width": 2000,
+            "height": 2000
+          },
+          {
+            "title": "SHOOT BALLOON STALL 8'X8'-02",
+            "kind": "graphic",
+            "src": "/works/henkel/game-stalls/shoot-balloon-stall-8-x8-02.webp",
+            "thumb": "/works/henkel/game-stalls/shoot-balloon-stall-8-x8-02-sm.webp",
+            "width": 2000,
+            "height": 625
+          }
+        ]
+      },
+      {
+        "name": "History Wall",
+        "slug": "history-wall",
+        "items": [
+          {
+            "title": "history wall 2 final",
+            "kind": "render",
+            "src": "/works/henkel/history-wall/history-wall-2-final.webp",
+            "thumb": "/works/henkel/history-wall/history-wall-2-final-sm.webp",
+            "width": 2000,
+            "height": 1000
+          },
+          {
+            "title": "history wall india mockup",
+            "kind": "render",
+            "src": "/works/henkel/history-wall/history-wall-india-mockup.webp",
+            "thumb": "/works/henkel/history-wall/history-wall-india-mockup-sm.webp",
+            "width": 2000,
+            "height": 1000
+          },
+          {
+            "title": "history wall INDIA",
+            "kind": "render",
+            "src": "/works/henkel/history-wall/history-wall-india.webp",
+            "thumb": "/works/henkel/history-wall/history-wall-india-sm.webp",
+            "width": 2000,
+            "height": 1000
+          },
+          {
+            "title": "history wall world mockup",
+            "kind": "render",
+            "src": "/works/henkel/history-wall/history-wall-world-mockup.webp",
+            "thumb": "/works/henkel/history-wall/history-wall-world-mockup-sm.webp",
+            "width": 2000,
+            "height": 1000
+          }
+        ]
+      },
+      {
+        "name": "Kids Zone",
+        "slug": "kids-zone",
+        "items": [
+          {
+            "title": "create-ultra-high-resolution-photorealistic-indoor",
+            "kind": "render",
+            "src": "/works/henkel/kids-zone/create-ultra-high-resolution-photorealistic-indoor.webp",
+            "thumb": "/works/henkel/kids-zone/create-ultra-high-resolution-photorealistic-indoor-sm.webp",
+            "width": 2000,
+            "height": 1125
+          },
+          {
+            "title": "kids zone",
+            "kind": "render",
+            "src": "/works/henkel/kids-zone/kids-zone.webp",
+            "thumb": "/works/henkel/kids-zone/kids-zone-sm.webp",
+            "width": 2000,
+            "height": 1080
+          },
+          {
+            "title": "generation wall 16x12",
+            "kind": "graphic",
+            "src": "/works/henkel/kids-zone/generation-wall-16x12.webp",
+            "thumb": "/works/henkel/kids-zone/generation-wall-16x12-sm.webp",
+            "width": 2000,
+            "height": 1500
+          },
+          {
+            "title": "KID ZONE 10'x6.8",
+            "kind": "graphic",
+            "src": "/works/henkel/kids-zone/kid-zone-10-x6-8.webp",
+            "thumb": "/works/henkel/kids-zone/kid-zone-10-x6-8-sm.webp",
+            "width": 2000,
+            "height": 1350
+          },
+          {
+            "title": "kids creative zone 2-01",
+            "kind": "graphic",
+            "src": "/works/henkel/kids-zone/kids-creative-zone-2-01.webp",
+            "thumb": "/works/henkel/kids-zone/kids-creative-zone-2-01-sm.webp",
+            "width": 400,
+            "height": 2000
+          },
+          {
+            "title": "kids creative zone 2-02",
+            "kind": "graphic",
+            "src": "/works/henkel/kids-zone/kids-creative-zone-2-02.webp",
+            "thumb": "/works/henkel/kids-zone/kids-creative-zone-2-02-sm.webp",
+            "width": 400,
+            "height": 2000
+          },
+          {
+            "title": "kids creative zone 2-03",
+            "kind": "graphic",
+            "src": "/works/henkel/kids-zone/kids-creative-zone-2-03.webp",
+            "thumb": "/works/henkel/kids-zone/kids-creative-zone-2-03-sm.webp",
+            "width": 2000,
+            "height": 200
+          },
+          {
+            "title": "kids creative zone 2-04",
+            "kind": "graphic",
+            "src": "/works/henkel/kids-zone/kids-creative-zone-2-04.webp",
+            "thumb": "/works/henkel/kids-zone/kids-creative-zone-2-04-sm.webp",
+            "width": 2000,
+            "height": 938
+          },
+          {
+            "title": "kids creative zone 2-05",
+            "kind": "graphic",
+            "src": "/works/henkel/kids-zone/kids-creative-zone-2-05.webp",
+            "thumb": "/works/henkel/kids-zone/kids-creative-zone-2-05-sm.webp",
+            "width": 1200,
+            "height": 900
+          },
+          {
+            "title": "kids creative zone 2-06",
+            "kind": "graphic",
+            "src": "/works/henkel/kids-zone/kids-creative-zone-2-06.webp",
+            "thumb": "/works/henkel/kids-zone/kids-creative-zone-2-06-sm.webp",
+            "width": 600,
+            "height": 900
+          }
+        ]
+      },
+      {
+        "name": "Collaterals",
+        "slug": "collaterals",
+        "items": [
+          {
+            "title": "DANGLER 3",
+            "kind": "render",
+            "src": "/works/henkel/collaterals/dangler-3.webp",
+            "thumb": "/works/henkel/collaterals/dangler-3-sm.webp",
+            "width": 2000,
+            "height": 1334
+          },
+          {
+            "title": "DANGLER 4",
+            "kind": "render",
+            "src": "/works/henkel/collaterals/dangler-4.webp",
+            "thumb": "/works/henkel/collaterals/dangler-4-sm.webp",
+            "width": 1536,
+            "height": 1024
+          },
+          {
+            "title": "DANGLER 5",
+            "kind": "render",
+            "src": "/works/henkel/collaterals/dangler-5.webp",
+            "thumb": "/works/henkel/collaterals/dangler-5-sm.webp",
+            "width": 1536,
+            "height": 1024
+          },
+          {
+            "title": "standee",
+            "kind": "render",
+            "src": "/works/henkel/collaterals/standee.webp",
+            "thumb": "/works/henkel/collaterals/standee-sm.webp",
+            "width": 1130,
+            "height": 2000
+          },
+          {
+            "title": "wrist band",
+            "kind": "render",
+            "src": "/works/henkel/collaterals/wrist-band.webp",
+            "thumb": "/works/henkel/collaterals/wrist-band-sm.webp",
+            "width": 1280,
+            "height": 960
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "borderless-access",
+    "name": "Borderless Access",
+    "subtitle": "Corporate event",
+    "cover": "/works/borderless-access/stage/bordeless-access-stage.webp",
+    "coverThumb": "/works/borderless-access/stage/bordeless-access-stage-sm.webp",
+    "zones": [
+      {
+        "name": "Stage",
+        "slug": "stage",
+        "items": [
+          {
+            "title": "Bordeless Access Stage",
+            "kind": "render",
+            "src": "/works/borderless-access/stage/bordeless-access-stage.webp",
+            "thumb": "/works/borderless-access/stage/bordeless-access-stage-sm.webp",
+            "width": 2000,
+            "height": 1081
+          },
+          {
+            "title": "2.6x5",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/2-6x5.webp",
+            "thumb": "/works/borderless-access/stage/2-6x5-sm.webp",
+            "width": 1040,
+            "height": 2000
+          },
+          {
+            "title": "bg-01",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/bg-01.webp",
+            "thumb": "/works/borderless-access/stage/bg-01-sm.webp",
+            "width": 1800,
+            "height": 1200
+          },
+          {
+            "title": "bg-02",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/bg-02.webp",
+            "thumb": "/works/borderless-access/stage/bg-02-sm.webp",
+            "width": 2000,
+            "height": 313
+          },
+          {
+            "title": "BG 01-01",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/bg-01-01.webp",
+            "thumb": "/works/borderless-access/stage/bg-01-01-sm.webp",
+            "width": 1000,
+            "height": 2000
+          },
+          {
+            "title": "BG 01-02",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/bg-01-02.webp",
+            "thumb": "/works/borderless-access/stage/bg-01-02-sm.webp",
+            "width": 1000,
+            "height": 2000
+          },
+          {
+            "title": "BG 01-03",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/bg-01-03.webp",
+            "thumb": "/works/borderless-access/stage/bg-01-03-sm.webp",
+            "width": 1000,
+            "height": 2000
+          },
+          {
+            "title": "BG 01",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/bg-01.webp",
+            "thumb": "/works/borderless-access/stage/bg-01-sm.webp",
+            "width": 360,
+            "height": 720
+          },
+          {
+            "title": "BG 01",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/bg-01.webp",
+            "thumb": "/works/borderless-access/stage/bg-01-sm.webp",
+            "width": 900,
+            "height": 1800
+          },
+          {
+            "title": "BG 02",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/bg-02.webp",
+            "thumb": "/works/borderless-access/stage/bg-02-sm.webp",
+            "width": 360,
+            "height": 720
+          },
+          {
+            "title": "Podium",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/podium.webp",
+            "thumb": "/works/borderless-access/stage/podium-sm.webp",
+            "width": 1000,
+            "height": 2000
+          },
+          {
+            "title": "Raiser-01",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/raiser-01.webp",
+            "thumb": "/works/borderless-access/stage/raiser-01-sm.webp",
+            "width": 2000,
+            "height": 121
+          },
+          {
+            "title": "Side Screen change",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/side-screen-change.webp",
+            "thumb": "/works/borderless-access/stage/side-screen-change-sm.webp",
+            "width": 2000,
+            "height": 1231
+          },
+          {
+            "title": "Skerting",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/skerting.webp",
+            "thumb": "/works/borderless-access/stage/skerting-sm.webp",
+            "width": 2000,
+            "height": 65
+          },
+          {
+            "title": "stage tex",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/stage-tex.webp",
+            "thumb": "/works/borderless-access/stage/stage-tex-sm.webp",
+            "width": 2000,
+            "height": 1714
+          },
+          {
+            "title": "Stage Tex 02-02",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/stage-tex-02-02.webp",
+            "thumb": "/works/borderless-access/stage/stage-tex-02-02-sm.webp",
+            "width": 750,
+            "height": 1725
+          },
+          {
+            "title": "Top-01",
+            "kind": "graphic",
+            "src": "/works/borderless-access/stage/top-01.webp",
+            "thumb": "/works/borderless-access/stage/top-01-sm.webp",
+            "width": 2000,
+            "height": 121
+          }
+        ]
+      },
+      {
+        "name": "Entry Arch",
+        "slug": "entry-arch",
+        "items": [
+          {
+            "title": "Borderless Access Entrance",
+            "kind": "render",
+            "src": "/works/borderless-access/entry-arch/borderless-access-entrance.webp",
+            "thumb": "/works/borderless-access/entry-arch/borderless-access-entrance-sm.webp",
+            "width": 1706,
+            "height": 922
+          },
+          {
+            "title": "entry arch 1",
+            "kind": "render",
+            "src": "/works/borderless-access/entry-arch/entry-arch-1.webp",
+            "thumb": "/works/borderless-access/entry-arch/entry-arch-1-sm.webp",
+            "width": 2000,
+            "height": 1081
+          },
+          {
+            "title": "Entry Arch-01",
+            "kind": "render",
+            "src": "/works/borderless-access/entry-arch/entry-arch-01.webp",
+            "thumb": "/works/borderless-access/entry-arch/entry-arch-01-sm.webp",
+            "width": 2000,
+            "height": 1000
+          }
+        ]
+      },
+      {
+        "name": "Registration Desk",
+        "slug": "registration-desk",
+        "items": [
+          {
+            "title": "Borderless Access Registration Booth",
+            "kind": "render",
+            "src": "/works/borderless-access/registration-desk/borderless-access-registration-booth.webp",
+            "thumb": "/works/borderless-access/registration-desk/borderless-access-registration-booth-sm.webp",
+            "width": 1706,
+            "height": 922
+          }
+        ]
+      },
+      {
+        "name": "Photobooth",
+        "slug": "photobooth",
+        "items": [
+          {
+            "title": "Borderless Access photobooth",
+            "kind": "render",
+            "src": "/works/borderless-access/photobooth/borderless-access-photobooth.webp",
+            "thumb": "/works/borderless-access/photobooth/borderless-access-photobooth-sm.webp",
+            "width": 1706,
+            "height": 922
+          },
+          {
+            "title": "photobooth 2",
+            "kind": "render",
+            "src": "/works/borderless-access/photobooth/photobooth-2.webp",
+            "thumb": "/works/borderless-access/photobooth/photobooth-2-sm.webp",
+            "width": 2000,
+            "height": 1125
+          }
+        ]
+      },
+      {
+        "name": "Collaterals",
+        "slug": "collaterals",
+        "items": [
+          {
+            "title": "wobbler",
+            "kind": "render",
+            "src": "/works/borderless-access/collaterals/wobbler.webp",
+            "thumb": "/works/borderless-access/collaterals/wobbler-sm.webp",
+            "width": 1280,
+            "height": 520
+          },
+          {
+            "title": "wrist band",
+            "kind": "render",
+            "src": "/works/borderless-access/collaterals/wrist-band.webp",
+            "thumb": "/works/borderless-access/collaterals/wrist-band-sm.webp",
+            "width": 1280,
+            "height": 960
+          }
+        ]
+      }
+    ]
+  }
+]
