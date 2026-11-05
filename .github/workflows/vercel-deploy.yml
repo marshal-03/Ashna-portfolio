@@ -27,9 +27,26 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
     steps:
-      - uses: actions/checkout@v4
+      # Fail fast with a clear message if the Vercel secrets haven't been added yet.
+      - name: Check Vercel secrets
+        env:
+          HAS_TOKEN: ${{ secrets.VERCEL_TOKEN != '' }}
+          HAS_ORG: ${{ secrets.VERCEL_ORG_ID != '' }}
+          HAS_PROJECT: ${{ secrets.VERCEL_PROJECT_ID != '' }}
+        run: |
+          missing=""
+          [ "$HAS_TOKEN" = "true" ] || missing="$missing VERCEL_TOKEN"
+          [ "$HAS_ORG" = "true" ] || missing="$missing VERCEL_ORG_ID"
+          [ "$HAS_PROJECT" = "true" ] || missing="$missing VERCEL_PROJECT_ID"
+          if [ -n "$missing" ]; then
+            echo "::error title=Missing Vercel secrets::Add these repository secrets (Settings -> Secrets and variables -> Actions):$missing. See the README section 'Deploying to Vercel'."
+            exit 1
+          fi
+          echo "All Vercel secrets are set."
 
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
