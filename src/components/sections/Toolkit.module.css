@@ -14,20 +14,9 @@
   margin: 0 var(--gutter) clamp(1.75rem, 3.5vw, 2.5rem);
 }
 
-.toolkit__marquee {
-  overflow: hidden;
-}
-
-/* Runs in reverse, so the tiles travel left to right. */
-.toolkit__track {
+.toolkit__list {
   list-style: none;
   display: flex;
-  width: max-content;
-  animation: toolkit-scroll 30s linear infinite reverse;
-}
-
-.toolkit__marquee:hover .toolkit__track {
-  animation-play-state: paused;
 }
 
 .tool {
@@ -56,11 +45,4 @@
   font-size: clamp(1rem, 1.5vw, 1.3rem);
   font-weight: 500;
   white-space: nowrap;
-}
-
-/* One copy of the list is 1/4 of the track. */
-@keyframes toolkit-scroll {
-  to {
-    transform: translateX(-25%);
-  }
 }

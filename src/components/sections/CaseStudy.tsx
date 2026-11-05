@@ -4,8 +4,6 @@ import type { CaseShot, CaseStudy as CaseStudyData } from '@/data/caseStudies'
 import Reveal from '@/components/ui/Reveal'
 import s from './CaseStudy.module.css'
 
-const pad = (n: number) => String(n).padStart(2, '0')
-
 // Hand-drawn style dashed arrow curving down towards the caption.
 function DashedArrow() {
   return (
@@ -86,15 +84,7 @@ function TextBlock({ study, wide }: { study: CaseStudyData; wide?: boolean }) {
   )
 }
 
-export default function CaseStudy({
-  study,
-  index,
-  total,
-}: {
-  study: CaseStudyData
-  index: number
-  total: number
-}) {
+export default function CaseStudy({ study }: { study: CaseStudyData }) {
   const hasText = Boolean(
     study.overview?.length || study.highlights?.length || study.deliverables?.length,
   )
@@ -109,9 +99,6 @@ export default function CaseStudy({
       {/* Every block pops up from the bottom as it scrolls into view. */}
       <Reveal>
         <header className={s.case__head}>
-          <p className={s.case__index}>
-            {pad(index + 1)} / {pad(total)}
-          </p>
           <h3 className={s.case__brand}>
             {study.brand}
             {study.event && <span> · {study.event}</span>}

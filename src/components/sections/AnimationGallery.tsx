@@ -61,12 +61,6 @@ export default function AnimationGallery() {
         style={{ height: pinned ? `calc(100svh + ${distance}px)` : 'auto' }}
       >
         <div className={s.art__stage}>
-          <div className={s.art__head}>
-            <div>
-              <p className="eyebrow">Maya · After Effects · Adobe Animate</p>
-            </div>
-          </div>
-
           <div ref={viewport} className={s.art__viewport}>
             <div
               ref={track}

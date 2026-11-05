@@ -100,8 +100,6 @@ export default function PortraitSketches() {
         style={{ height: `${100 + (n - 1) * 80}svh` }}
       >
         <div className={s.stage}>
-          <p className={`eyebrow ${s.eyebrow}`}>Graphite · Colour pencil · Watercolour</p>
-
           <div className={s.pile}>
             {portraits.map((p, i) => {
               const a = arrival(i)
@@ -143,9 +141,6 @@ export default function PortraitSketches() {
           <p className={s.caption} aria-live="polite">
             <span className={s.caption__title}>{current.title}</span>
             <span className={s.caption__medium}>{current.medium}</span>
-            <span className={s.caption__count}>
-              {String(landed + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}
-            </span>
           </p>
         </div>
         {lightbox}

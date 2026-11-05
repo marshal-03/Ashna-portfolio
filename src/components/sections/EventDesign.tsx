@@ -9,8 +9,8 @@ export default function EventDesign() {
     <section id="event-design" className={s.event}>
       <EventIntro />
       <div className={s.cases}>
-        {caseStudies.map((study, i) => (
-          <CaseStudy key={study.slug} study={study} index={i} total={caseStudies.length} />
+        {caseStudies.map((study) => (
+          <CaseStudy key={study.slug} study={study} />
         ))}
       </div>
     </section>

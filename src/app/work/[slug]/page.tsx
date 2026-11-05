@@ -18,8 +18,6 @@ export async function generateMetadata({ params }: PageProps<'/work/[slug]'>): P
     : {}
 }
 
-const pad = (n: number) => String(n).padStart(2, '0')
-
 export default async function WorkPage({ params }: PageProps<'/work/[slug]'>) {
   const { slug } = await params
   const work = findWork(slug)
@@ -35,9 +33,6 @@ export default async function WorkPage({ params }: PageProps<'/work/[slug]'>) {
           <Link href="/#event-design" className={s.work__back}>
             ← All works
           </Link>
-          <p className="eyebrow">
-            {pad(position + 1)} / {pad(works.length)}
-          </p>
           <h1 className={s.work__title}>{work.name}</h1>
           <p className={s.work__subtitle}>{work.subtitle}</p>
           <nav className={s.work__zones} aria-label="Sections">

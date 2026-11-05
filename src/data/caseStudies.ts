@@ -4,8 +4,6 @@
 import type { StaticImageData } from 'next/image'
 import raw from './works.json'
 import type { BrandWork } from '@/types'
-import dfWristbands from '@/assets/images/collaterals/df-wristbands.webp'
-import dfLanyard from '@/assets/images/collaterals/df-lanyard.webp'
 
 export interface CaseImage {
   src: string
@@ -98,28 +96,6 @@ export const caseStudies: CaseStudy[] = [
         label: 'Registration Design',
         image: img('dark-fantasy/registration-desk/dark-fantacy-registration-desk'),
       },
-    ],
-    textPlacement: 'below',
-    overview: [
-      'A luxurious, cinematic event design concept created for the Dark Fantasy “Party with SRK” experience. The design brings together dramatic lighting, rich colours, and premium visual elements to create an immersive Bollywood-inspired celebration.',
-    ],
-    deliverables: [
-      {
-        title: 'Main Stage Design',
-        text: 'A grand stage featuring cinematic LED graphics, golden visual elements, and dramatic lighting.',
-      },
-      {
-        title: 'Entrance Arch Design',
-        text: 'A striking architectural gateway with illuminated golden arches, creating a luxurious arrival experience.',
-      },
-      {
-        title: 'Registration Desk Design',
-        text: 'A premium welcome area with elegant branding, gold accents, and coordinated graphic styling.',
-      },
-    ],
-    decor: [
-      { image: dfWristbands, alt: 'Dark Fantasy branded wristbands', side: 'right' },
-      { image: dfLanyard, alt: 'Dark Fantasy lanyard and badge', side: 'left' },
     ],
   },
   {

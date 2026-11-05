@@ -16,15 +16,12 @@ export default function SectionIntro({
   id,
   lines,
   top,
-  meta,
 }: {
   id?: string
   /** Title lines, e.g. ['Event', 'Design']. */
   lines: string[]
   /** Optional content pinned at the top of the frame before the title arrives. */
   top?: ReactNode
-  /** Small uppercase line along the bottom of the frame. */
-  meta?: string
 }) {
   const wrap = useRef<HTMLDivElement>(null)
   const [progress, setProgress] = useState(0)
@@ -99,8 +96,6 @@ export default function SectionIntro({
             </span>
           ))}
         </h2>
-
-        {meta && pinned && <p className={s.meta}>{meta}</p>}
       </div>
     </div>
   )

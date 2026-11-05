@@ -1,0 +1,34 @@
+/* A real horizontal scroller (swipeable / draggable), with the scrollbar hidden. */
+.scroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.dragging {
+  cursor: grabbing;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+}
+
+.copy {
+  display: flex;
+  flex: none;
+}
+
+/* Images inside shouldn't start a native drag. */
+.copy img {
+  -webkit-user-drag: none;
+  pointer-events: none;
+}

@@ -109,7 +109,6 @@ export default function WeddingGallery() {
       <>
         <SectionIntro id="weddings" lines={['Wedding', 'Designs']} />
         <section id="weddings-gallery" className={`${s.wedding} ${s['wedding--static']}`}>
-          <Header />
           <div className={s.row}>
             {works.map((work, i) => (
               <button key={work.src} type="button" className={s.rowCard} onClick={() => setOpen(i)}>
@@ -146,8 +145,6 @@ export default function WeddingGallery() {
         style={{ height: `calc(100svh + ${Math.round(scrollLength)}px)` }}
       >
         <div className={s.stage} style={{ perspective: `${PERSPECTIVE}px` }}>
-          <Header />
-
           <div className={s.ring}>
             {cards.map(({ work, i, style }) => (
               <button
@@ -186,13 +183,5 @@ export default function WeddingGallery() {
         )}
       </section>
     </>
-  )
-}
-
-function Header() {
-  return (
-    <header className={s.head}>
-      <p className="eyebrow">Invitations · Stationery · Décor</p>
-    </header>
   )
 }

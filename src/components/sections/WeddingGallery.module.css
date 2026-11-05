@@ -14,20 +14,6 @@
   perspective-origin: 50% 50%;
 }
 
-.head {
-  position: absolute;
-  top: clamp(4.5rem, 9vh, 6.5rem);
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.head :global(.eyebrow) {
-  margin-bottom: 0.4rem;
-}
-
 .ring {
   position: absolute;
   left: 50%;
@@ -84,11 +70,6 @@
 /* Reduced motion: a plain swipeable row. */
 .wedding--static {
   padding: var(--section-gap) 0;
-}
-
-.wedding--static .head {
-  position: static;
-  margin-bottom: 2rem;
 }
 
 .row {

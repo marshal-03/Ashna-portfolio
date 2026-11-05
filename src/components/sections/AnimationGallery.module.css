@@ -17,20 +17,6 @@
   overflow: hidden;
 }
 
-.art__head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  gap: 1rem 2rem;
-  padding: 0 var(--gutter);
-  margin-bottom: 1.25rem;
-}
-
-.art__head :global(.eyebrow) {
-  margin-bottom: 0.4rem;
-}
-
 /* The cards take all remaining height of the screen. */
 .art__viewport {
   flex: 1;
@@ -72,9 +58,6 @@
     padding-top: 4.5rem;
     /* keep the progress bar clear of the bottom icon bar */
     padding-bottom: calc(5rem + env(safe-area-inset-bottom));
-  }
-  .art__head {
-    margin-bottom: 1rem;
   }
   .art__track {
     gap: 0.75rem;

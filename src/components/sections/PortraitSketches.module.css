@@ -13,15 +13,6 @@
   overflow: hidden;
 }
 
-.eyebrow {
-  position: absolute;
-  top: clamp(4.5rem, 9vh, 6rem);
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 20;
-}
-
 .pile {
   position: absolute;
   inset: 0;
@@ -79,12 +70,6 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-muted);
-}
-
-.caption__count {
-  font-size: 0.78rem;
-  color: #a99cff;
-  font-variant-numeric: tabular-nums;
 }
 
 /* Reduced motion: a plain grid. */

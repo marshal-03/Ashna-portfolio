@@ -12,9 +12,8 @@ export const profile: Profile = {
     'signage, and theme décor visuals for weddings, corporate events, and special celebrations. ' +
     'Dedicated to delivering unique, elegant, and memorable design experiences that bring every ' +
     'event vision to life.',
-  // TODO: replace with the real email address.
-  email: 'hello@example.com',
-  // TODO: drop the CV file into /public with this name.
+  email: 'ashnaart24@gmail.com',
+  // public/Ashna-Mary-CV.pdf
   resumeUrl: '/Ashna-Mary-CV.pdf',
 }
 
@@ -27,9 +26,8 @@ export const tools: Tool[] = [
 ]
 
 export const socials: SocialLink[] = [
-  // TODO: replace LinkedIn / Instagram with real profile URLs.
-  { kind: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/' },
-  { kind: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/' },
+  { kind: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/ashna-t-154125335' },
+  { kind: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/_ashna_art_' },
   { kind: 'artstation', label: 'ArtStation', url: 'https://www.artstation.com/ashnamary24' },
 ]
 

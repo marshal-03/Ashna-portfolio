@@ -1,30 +1,24 @@
-import { Fragment } from 'react'
 import { tools } from '@/data/portfolio'
+import Marquee from '@/components/ui/Marquee'
 import s from './Toolkit.module.css'
 
 // Rendered inside the Event Design frame so both share one background.
-// The row is repeated so the marquee can loop seamlessly; enough copies to cover wide screens.
-const COPIES = 4
-
+// The row drifts left to right on its own and can be swiped by hand (see Marquee).
 export default function Toolkit() {
   return (
     <div id="toolkit" className={s.toolkit}>
       <h2 className={s.toolkit__title}>My Creative Toolkit</h2>
 
-      <div className={s.toolkit__marquee}>
-        <ul className={s.toolkit__track}>
-          {Array.from({ length: COPIES }, (_, n) => (
-            <Fragment key={n}>
-              {tools.map((tool) => (
-                <li key={`${n}-${tool.short}`} className={s.tool} aria-hidden={n > 0 || undefined}>
-                  <span className={s.tool__mark}>{tool.short}</span>
-                  <span className={s.tool__name}>{tool.name}</span>
-                </li>
-              ))}
-            </Fragment>
+      <Marquee copies={4} secondsPerCopy={30} direction="right" label="Software I use">
+        <ul className={s.toolkit__list}>
+          {tools.map((tool) => (
+            <li key={tool.short} className={s.tool}>
+              <span className={s.tool__mark}>{tool.short}</span>
+              <span className={s.tool__name}>{tool.name}</span>
+            </li>
           ))}
         </ul>
-      </div>
+      </Marquee>
     </div>
   )
 }

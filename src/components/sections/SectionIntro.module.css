@@ -54,23 +54,3 @@
   white-space: nowrap;
   will-change: transform, opacity;
 }
-
-.meta {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  bottom: 1.5rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(220, 215, 245, 0.7);
-  pointer-events: none;
-}
-
-@media (max-width: 720px) {
-  .meta {
-    bottom: calc(6rem + env(safe-area-inset-bottom));
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-  }
-}
