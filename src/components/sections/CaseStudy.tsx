@@ -5,14 +5,6 @@ import s from './CaseStudy.module.css'
 
 const pad = (n: number) => String(n).padStart(2, '0')
 
-function Sparkle({ className }: { className: string }) {
-  return (
-    <svg className={`${s.sparkle} ${className}`} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 0c.6 6.6 2.8 9.4 12 12-9.2 2.6-11.4 5.4-12 12-.6-6.6-2.8-9.4-12-12C9.2 9.4 11.4 6.6 12 0Z" />
-    </svg>
-  )
-}
-
 // Hand-drawn style dashed arrow curving down towards the caption.
 function DashedArrow() {
   return (
@@ -134,7 +126,6 @@ export default function CaseStudy({
           <div className={s.textWrap}>
             <span className={`${s.blob} ${s['blob--right']}`} aria-hidden="true" />
             <TextBlock study={study} />
-            <Sparkle className={s['sparkle--text']} />
           </div>
         </div>
       )}
@@ -156,7 +147,6 @@ export default function CaseStudy({
             </div>
           ))}
           <TextBlock study={study} wide />
-          <Sparkle className={s['sparkle--decor']} />
         </div>
       )}
 
@@ -166,9 +156,6 @@ export default function CaseStudy({
           <p>{study.outcome}</p>
         </div>
       )}
-
-      <Sparkle className={s['sparkle--a']} />
-      <Sparkle className={s['sparkle--b']} />
     </article>
   )
 }

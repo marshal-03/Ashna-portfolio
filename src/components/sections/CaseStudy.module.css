@@ -1,6 +1,5 @@
 .case {
   position: relative;
-  overflow: clip;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
@@ -120,11 +119,18 @@
   position: relative;
 }
 
+/* Soft glow in the site's own violet/indigo (--color-primary / --color-indigo-glow), fading out
+   fully before its edge so it never shows a hard rim. */
 .blob {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle at 40% 40%, #1f3fd6 0%, #1733b8 45%, rgba(23, 51, 184, 0) 70%);
-  opacity: 0.75;
+  background: radial-gradient(
+    circle,
+    rgba(108, 88, 230, 0.45) 0%,
+    rgba(91, 69, 217, 0.3) 30%,
+    rgba(58, 45, 143, 0.14) 52%,
+    rgba(58, 45, 143, 0) 70%
+  );
   pointer-events: none;
 }
 
@@ -194,13 +200,6 @@
   padding-top: 0;
 }
 
-.sparkle--decor {
-  right: 24%;
-  bottom: 1rem;
-  width: 1.4rem;
-  height: 1.4rem;
-}
-
 .text ul {
   list-style: none;
 }
@@ -246,35 +245,6 @@
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
-}
-
-/* Four-point sparkle accents */
-.sparkle {
-  position: absolute;
-  width: 1.6rem;
-  height: 1.6rem;
-  fill: #fff;
-  filter: drop-shadow(0 0 8px rgba(200, 190, 255, 0.8));
-  pointer-events: none;
-}
-
-.sparkle--text {
-  right: 0;
-  bottom: -2.5rem;
-}
-
-.sparkle--a {
-  right: calc(var(--gutter) - 0.5rem);
-  top: clamp(3rem, 7vw, 5.5rem);
-  width: 1.1rem;
-  height: 1.1rem;
-}
-
-.sparkle--b {
-  right: var(--gutter);
-  bottom: clamp(1.25rem, 3vw, 2rem);
-  width: 2rem;
-  height: 2rem;
 }
 
 @media (max-width: 900px) {
