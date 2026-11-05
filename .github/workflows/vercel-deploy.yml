@@ -13,10 +13,11 @@ on:
     branches: ['**']
   workflow_dispatch:
 
-# One deployment per branch at a time; a newer push cancels the older run.
+# One deployment per branch at a time. Production (main) deploys queue up instead of cancelling each
+# other, so a re-run can't kill the newest deploy; preview branches still cancel older runs.
 concurrency:
   group: vercel-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
