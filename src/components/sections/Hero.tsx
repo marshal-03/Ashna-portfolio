@@ -67,12 +67,12 @@ export default function Hero() {
       {/* Each line slides up from behind a mask; the big words carry a slow light sheen. */}
       <h1 className={s.hero__hello}>
         <span className={s.line}>
-          <span className={`${s.line__in} ${s.hero__hi}`} style={delay('0.35s')}>
+          <span className={`${s.line__in} ${s.hero__hi}`} style={delay('0.5s')}>
             Hi I’m
           </span>
         </span>
         <span className={s.line}>
-          <span className={`${s.line__in} ${s.hero__first} ${s.sheen}`} style={delay('0.5s')}>
+          <span className={`${s.line__in} ${s.hero__first} ${s.sheen}`} style={delay('0.85s')}>
             {profile.firstName}
           </span>
         </span>
@@ -80,14 +80,14 @@ export default function Hero() {
 
       <p className={s.hero__role} aria-label={profile.role}>
         <span className={s.line}>
-          <span className={`${s.line__in} ${s['hero__role-top']}`} style={delay('0.6s')}>
+          <span className={`${s.line__in} ${s['hero__role-top']}`} style={delay('1.1s')}>
             {roleTop}
           </span>
         </span>
         <span className={s.line}>
           <span
             className={`${s.line__in} ${s['hero__role-bottom']} ${s.sheen}`}
-            style={delay('0.75s')}
+            style={delay('1.45s')}
           >
             {roleBottom}
           </span>
