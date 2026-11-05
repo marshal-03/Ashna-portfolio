@@ -1,6 +1,7 @@
 import Hero from '@/components/sections/Hero'
 import About from '@/components/sections/About'
 import EventDesign from '@/components/sections/EventDesign'
+import WeddingGallery from '@/components/sections/WeddingGallery'
 import AnimationGallery from '@/components/sections/AnimationGallery'
 import Contact from '@/components/sections/Contact'
 
@@ -10,6 +11,7 @@ export default function HomePage() {
       <Hero />
       <About />
       <EventDesign />
+      <WeddingGallery />
       <AnimationGallery />
       <Contact />
     </>

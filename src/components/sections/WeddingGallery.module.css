@@ -1,0 +1,114 @@
+.wedding {
+  position: relative;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 55%, rgba(91, 69, 217, 0.28), transparent 70%),
+    linear-gradient(180deg, #0b0a26 0%, #120f33 50%, var(--color-bg) 100%);
+}
+
+/* Pinned frame holding the 3D ring. */
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  perspective-origin: 50% 50%;
+}
+
+.head {
+  position: absolute;
+  top: clamp(4.5rem, 9vh, 6.5rem);
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.head :global(.eyebrow) {
+  margin-bottom: 0.4rem;
+}
+
+.ring {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform-style: preserve-3d;
+}
+
+.card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--color-surface);
+  cursor: zoom-in;
+  backface-visibility: hidden;
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  will-change: transform, opacity;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* Title of the piece facing you, like a small label chip under the ring. */
+.caption {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.5rem, 6vh, 3.5rem);
+  transform: translateX(-50%);
+  padding: 0.45rem 1.1rem;
+  border-radius: 8px;
+  background: rgba(5, 4, 12, 0.7);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(6px);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* Reduced motion: a plain swipeable row. */
+.wedding--static {
+  padding: var(--section-gap) 0;
+}
+
+.wedding--static .head {
+  position: static;
+  margin-bottom: 2rem;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0 var(--gutter) 1rem;
+}
+
+.rowCard {
+  flex: none;
+  height: 320px;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.rowCard img {
+  height: 100%;
+  width: auto;
+}
