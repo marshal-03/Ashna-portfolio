@@ -123,3 +123,10 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Phones: room at the bottom of the page for the floating icon bar (MobileNav). */
+@media (max-width: 720px) {
+  body {
+    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom));
+  }
+}

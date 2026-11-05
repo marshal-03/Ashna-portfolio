@@ -70,6 +70,8 @@
 @media (max-width: 720px) {
   .art__stage {
     padding-top: 4.5rem;
+    /* keep the progress bar clear of the bottom icon bar */
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
   }
   .art__head {
     margin-bottom: 1rem;

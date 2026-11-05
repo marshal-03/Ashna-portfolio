@@ -69,6 +69,7 @@
 
 @media (max-width: 720px) {
   .meta {
+    bottom: calc(6rem + env(safe-area-inset-bottom));
     font-size: 0.7rem;
     letter-spacing: 0.12em;
   }

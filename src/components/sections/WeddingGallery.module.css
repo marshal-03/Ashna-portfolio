@@ -112,3 +112,10 @@
   height: 100%;
   width: auto;
 }
+
+/* Phones: keep the caption clear of the bottom icon bar. */
+@media (max-width: 720px) {
+  .caption {
+    bottom: calc(6rem + env(safe-area-inset-bottom));
+  }
+}
