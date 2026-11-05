@@ -2,7 +2,7 @@
   position: relative;
   background:
     radial-gradient(ellipse 60% 45% at 50% 55%, rgba(91, 69, 217, 0.28), transparent 70%),
-    linear-gradient(180deg, #0b0a26 0%, #120f33 50%, var(--color-bg) 100%);
+    linear-gradient(180deg, #181238 0%, #120f33 50%, var(--color-bg) 100%);
 }
 
 /* Pinned frame holding the 3D ring. */

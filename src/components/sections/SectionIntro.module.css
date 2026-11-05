@@ -1,0 +1,75 @@
+.intro {
+  position: relative;
+}
+
+/* Purple frame with the lavender glow at the top right (same look across all intros). */
+.stage {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 45% 55% at 100% 0%, rgba(196, 190, 226, 0.95), transparent 70%),
+    radial-gradient(ellipse 70% 60% at 40% 0%, #43379a, transparent 75%),
+    linear-gradient(180deg, #2c2474 0%, #241d5c 55%, #181238 100%);
+  padding: var(--section-gap) var(--gutter);
+  text-align: center;
+}
+
+.intro--pinned .stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+
+/* Optional top slot (the toolkit row) overlays the top of the frame. */
+.intro--pinned .top {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 5;
+  will-change: transform, opacity;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3.6rem, min(12vw, 16vh), 11rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #f1ecff;
+  text-shadow: 0 0 40px rgba(170, 150, 255, 0.45);
+  user-select: none;
+}
+
+.intro:not(.intro--pinned) .title {
+  margin-top: 3rem;
+}
+
+.line {
+  display: block;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+
+.meta {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 1.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(220, 215, 245, 0.7);
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .meta {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+}

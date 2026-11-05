@@ -8,7 +8,7 @@ import s from './Header.module.css'
 const links = [
   { label: 'Works', href: '/#event-design' },
   { label: 'Weddings', href: '/#weddings' },
-  { label: 'Animation', href: '/#art' },
+  { label: 'Animations', href: '/#art' },
   { label: 'About', href: '/#about' },
 ]
 

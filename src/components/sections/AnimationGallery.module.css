@@ -1,6 +1,6 @@
 .art {
   position: relative;
-  background: linear-gradient(180deg, var(--color-bg), var(--color-bg-soft) 50%, var(--color-bg));
+  background: linear-gradient(180deg, #181238, var(--color-bg-soft) 50%, var(--color-bg));
   scroll-margin-top: 0;
 }
 

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { weddingWorks as works } from '@/data/wedding'
 import { useReducedMotion } from '@/hooks/useMediaQuery'
 import ImageLightbox from '@/components/work/ImageLightbox'
+import SectionIntro from './SectionIntro'
 import s from './WeddingGallery.module.css'
 
 /*
@@ -105,21 +106,76 @@ export default function WeddingGallery() {
   if (!pinned) {
     // Reduced motion: a plain swipeable row.
     return (
-      <section id="weddings" className={`${s.wedding} ${s['wedding--static']}`}>
-        <Header />
-        <div className={s.row}>
-          {works.map((work, i) => (
-            <button key={work.src} type="button" className={s.rowCard} onClick={() => setOpen(i)}>
-              <Image
-                src={work.src}
-                alt={work.title}
-                width={work.width}
-                height={work.height}
-                sizes="320px"
-              />
-            </button>
-          ))}
+      <>
+        <SectionIntro id="weddings" lines={['Wedding', 'Designs']} />
+        <section id="weddings-gallery" className={`${s.wedding} ${s['wedding--static']}`}>
+          <Header />
+          <div className={s.row}>
+            {works.map((work, i) => (
+              <button key={work.src} type="button" className={s.rowCard} onClick={() => setOpen(i)}>
+                <Image
+                  src={work.src}
+                  alt={work.title}
+                  width={work.width}
+                  height={work.height}
+                  sizes="320px"
+                />
+              </button>
+            ))}
+          </div>
+          {open !== null && (
+            <ImageLightbox
+              items={works}
+              index={open}
+              onIndexChange={setOpen}
+              onClose={() => setOpen(null)}
+            />
+          )}
+        </section>
+      </>
+    )
+  }
+
+  return (
+    <>
+      <SectionIntro id="weddings" lines={['Wedding', 'Designs']} />
+      <section
+        id="weddings-gallery"
+        ref={section}
+        className={s.wedding}
+        style={{ height: `calc(100svh + ${Math.round(scrollLength)}px)` }}
+      >
+        <div className={s.stage} style={{ perspective: `${PERSPECTIVE}px` }}>
+          <Header />
+
+          <div className={s.ring}>
+            {cards.map(({ work, i, style }) => (
+              <button
+                key={work.src}
+                type="button"
+                className={s.card}
+                style={style}
+                onClick={() => setOpen(i)}
+                aria-label={`Open ${work.title}`}
+                tabIndex={style.visibility === 'hidden' ? -1 : 0}
+              >
+                <Image
+                  src={work.src}
+                  alt={work.title}
+                  width={work.width}
+                  height={work.height}
+                  sizes="(max-width: 720px) 60vw, 40vw"
+                  loading="eager"
+                />
+              </button>
+            ))}
+          </div>
+
+          <p className={s.caption} aria-live="polite">
+            {works[activeIndex]!.title}
+          </p>
         </div>
+
         {open !== null && (
           <ImageLightbox
             items={works}
@@ -129,56 +185,7 @@ export default function WeddingGallery() {
           />
         )}
       </section>
-    )
-  }
-
-  return (
-    <section
-      id="weddings"
-      ref={section}
-      className={s.wedding}
-      style={{ height: `calc(100svh + ${Math.round(scrollLength)}px)` }}
-    >
-      <div className={s.stage} style={{ perspective: `${PERSPECTIVE}px` }}>
-        <Header />
-
-        <div className={s.ring}>
-          {cards.map(({ work, i, style }) => (
-            <button
-              key={work.src}
-              type="button"
-              className={s.card}
-              style={style}
-              onClick={() => setOpen(i)}
-              aria-label={`Open ${work.title}`}
-              tabIndex={style.visibility === 'hidden' ? -1 : 0}
-            >
-              <Image
-                src={work.src}
-                alt={work.title}
-                width={work.width}
-                height={work.height}
-                sizes="(max-width: 720px) 60vw, 40vw"
-                loading="eager"
-              />
-            </button>
-          ))}
-        </div>
-
-        <p className={s.caption} aria-live="polite">
-          {works[activeIndex]!.title}
-        </p>
-      </div>
-
-      {open !== null && (
-        <ImageLightbox
-          items={works}
-          index={open}
-          onIndexChange={setOpen}
-          onClose={() => setOpen(null)}
-        />
-      )}
-    </section>
+    </>
   )
 }
 
@@ -186,7 +193,6 @@ function Header() {
   return (
     <header className={s.head}>
       <p className="eyebrow">Invitations · Stationery · Décor</p>
-      <h2 className="section-title">Wedding Designs</h2>
     </header>
   )
 }

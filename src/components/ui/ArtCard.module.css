@@ -72,19 +72,6 @@
   color: var(--color-muted);
 }
 
-.card__info a {
-  pointer-events: auto;
-  display: inline-block;
-  margin-top: 0.4rem;
-  font-size: 0.78rem;
-  color: var(--color-muted);
-  border-bottom: 1px solid currentColor;
-}
-
-.card__info a:hover {
-  color: #fff;
-}
-
 /* Phones: every card is one screen-width "reel"; full screen shows the whole frame. */
 @media (max-width: 720px) {
   .card {

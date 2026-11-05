@@ -108,9 +108,6 @@ export default function ArtCard({ piece }: { piece: ArtPiece }) {
         <span className={s.card__cat}>{piece.category}</span>
         <h3>{piece.title}</h3>
         <p>{piece.description}</p>
-        <a href={piece.url} target="_blank" rel="noopener">
-          ArtStation ↗
-        </a>
       </figcaption>
     </figure>
   )

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { artPieces } from '@/data/portfolio'
 import { useReducedMotion } from '@/hooks/useMediaQuery'
 import ArtCard from '@/components/ui/ArtCard'
+import SectionIntro from './SectionIntro'
 import s from './AnimationGallery.module.css'
 
 /*
@@ -51,40 +52,42 @@ export default function AnimationGallery() {
   }, [pinned])
 
   return (
-    <section
-      id="art"
-      ref={section}
-      className={pinned ? `${s.art} ${s['art--pinned']}` : s.art}
-      style={{ height: pinned ? `calc(100svh + ${distance}px)` : 'auto' }}
-    >
-      <div className={s.art__stage}>
-        <div className={s.art__head}>
-          <div>
-            <p className="eyebrow">Maya · After Effects · Adobe Animate</p>
-            <h2 className="section-title">3D &amp; 2D Animation</h2>
+    <>
+      <SectionIntro id="art" lines={['Animations']} />
+      <section
+        id="art-gallery"
+        ref={section}
+        className={pinned ? `${s.art} ${s['art--pinned']}` : s.art}
+        style={{ height: pinned ? `calc(100svh + ${distance}px)` : 'auto' }}
+      >
+        <div className={s.art__stage}>
+          <div className={s.art__head}>
+            <div>
+              <p className="eyebrow">Maya · After Effects · Adobe Animate</p>
+            </div>
           </div>
-        </div>
 
-        <div ref={viewport} className={s.art__viewport}>
-          <div
-            ref={track}
-            className={s.art__track}
-            style={
-              pinned ? { transform: `translate3d(${-progress * distance}px, 0, 0)` } : undefined
-            }
-          >
-            {artPieces.map((piece) => (
-              <ArtCard key={piece.url} piece={piece} />
-            ))}
+          <div ref={viewport} className={s.art__viewport}>
+            <div
+              ref={track}
+              className={s.art__track}
+              style={
+                pinned ? { transform: `translate3d(${-progress * distance}px, 0, 0)` } : undefined
+              }
+            >
+              {artPieces.map((piece) => (
+                <ArtCard key={piece.url} piece={piece} />
+              ))}
+            </div>
           </div>
-        </div>
 
-        {pinned && distance > 0 && (
-          <div className={`container ${s.art__progress}`} aria-hidden="true">
-            <span style={{ transform: `scaleX(${progress})` }} />
-          </div>
-        )}
-      </div>
-    </section>
+          {pinned && distance > 0 && (
+            <div className={`container ${s.art__progress}`} aria-hidden="true">
+              <span style={{ transform: `scaleX(${progress})` }} />
+            </div>
+          )}
+        </div>
+      </section>
+    </>
   )
 }
