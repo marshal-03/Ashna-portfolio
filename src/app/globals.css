@@ -1,0 +1,125 @@
+:root {
+  --color-bg: #05040c;
+  --color-bg-soft: #0d0b1f;
+  --color-surface: #141130;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-text: #ffffff;
+  --color-muted: #b8b4d6;
+  --color-primary: #5b45d9;
+  --color-primary-hover: #6c58e6;
+  --color-indigo-glow: #3a2d8f;
+
+  /* --font-playfair / --font-poppins are provided by next/font in app/layout.tsx */
+  --font-display: var(--font-playfair), Didot, 'Bodoni MT', Georgia, serif;
+  --font-sans: var(--font-poppins), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --max-width: 1280px;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --radius: 14px;
+  --section-gap: clamp(4rem, 10vw, 8rem);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.6rem;
+  background: var(--color-primary);
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  transition:
+    background 0.2s,
+    transform 0.2s var(--ease);
+}
+
+.btn:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn--light {
+  background: #fff;
+  color: #111;
+}
+
+.btn--light:hover {
+  background: #e9e7f7;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary-hover);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

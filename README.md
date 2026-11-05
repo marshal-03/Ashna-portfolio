@@ -1,24 +1,35 @@
 # Ashna Mary — Portfolio
 
-Vue 3 + Vite + TypeScript portfolio for Ashna Mary, 2D designer (event stages, entry arches, registration desks, branding).
+Next.js 16 (App Router) + React 19 + TypeScript portfolio for Ashna Mary, 2D designer
+(event stages, entry arches, registration desks, branding, 3D/2D animation).
 
 ```bash
 npm install
-npm run dev      # local dev server
-npm run build    # type-check + production build into dist/
+npm run dev      # local dev server (http://localhost:3000)
+npm run build    # production build (prerenders every page)
+npm run start    # serve the production build
 npm run lint
+npm run format   # prettier
 ```
+
+The earlier Vue 3 version of this site is kept on the `vue-portfolio` branch.
 
 ## Where things live
 
 | What | File |
 | --- | --- |
-| Name, bio, email, CV link, social links | `src/data/portfolio.ts` |
-| ArtStation 3D / animation / art tiles | `artPieces` in `src/data/portfolio.ts` |
-| Brand projects (generated) | `src/data/works.json` + images in `public/works/` |
+| Name, bio, email, CV link, social links, toolkit apps | `src/data/portfolio.ts` |
+| ArtStation animations (3D & 2D) | `artPieces` in `src/data/portfolio.ts` |
+| Event Design scroll collages | `src/data/showcase.ts` + `src/assets/images/showcase/` |
+| Brand project pages (generated) | `src/data/works.json` + images in `public/works/` |
 | Hero / about artwork | `src/assets/images/` |
-| Colours & fonts | `src/assets/styles/main.css` |
+| Colours, spacing, buttons | `src/app/globals.css` |
+| Fonts (Playfair Display, Poppins) | `src/app/layout.tsx` |
+| Home page sections | `src/components/sections/` |
+| Brand page | `src/app/work/[slug]/page.tsx` + `src/components/work/` |
 | CV download | put the PDF at `public/Ashna-Mary-CV.pdf` |
+
+Each component has a matching `*.module.css` file next to it.
 
 ## Updating project images
 
@@ -33,4 +44,5 @@ Each brand is a folder of sub-folders (`stage/`, `entry arch/`, `registration de
 python scripts/build_works.py C:/portfolio/extracted public/works src/data/works.json
 ```
 
-The script resizes everything to WebP (2000px full size + 720px thumbnails).
+The script resizes everything to WebP (2000px full size + 720px thumbnails). New brands get a page at
+`/work/<slug>` automatically.

@@ -1,0 +1,66 @@
+.toolkit {
+  position: relative;
+  z-index: 5;
+  padding: 5.5rem 0 0;
+  overflow: hidden;
+}
+
+.toolkit__title {
+  text-align: center;
+  font-weight: 300;
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 var(--gutter) clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.toolkit__marquee {
+  overflow: hidden;
+}
+
+/* Runs in reverse, so the tiles travel left to right. */
+.toolkit__track {
+  list-style: none;
+  display: flex;
+  width: max-content;
+  animation: toolkit-scroll 30s linear infinite reverse;
+}
+
+.toolkit__marquee:hover .toolkit__track {
+  animation-play-state: paused;
+}
+
+.tool {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding-right: clamp(1.75rem, 3vw, 2.5rem);
+  flex: none;
+}
+
+.tool__mark {
+  display: grid;
+  place-items: center;
+  width: clamp(3.2rem, 4.4vw, 4rem);
+  aspect-ratio: 1;
+  background: #fff;
+  color: #000;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 2.1vw, 1.9rem);
+  letter-spacing: -0.02em;
+  box-shadow: 0 6px 18px rgba(20, 12, 60, 0.25);
+}
+
+.tool__name {
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* One copy of the list is 1/4 of the track. */
+@keyframes toolkit-scroll {
+  to {
+    transform: translateX(-25%);
+  }
+}

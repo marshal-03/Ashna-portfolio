@@ -1,0 +1,80 @@
+.art {
+  position: relative;
+  background: linear-gradient(180deg, var(--color-bg), var(--color-bg-soft) 50%, var(--color-bg));
+  scroll-margin-top: 0;
+}
+
+.art__stage {
+  display: flex;
+  flex-direction: column;
+  padding: 5.25rem 0 1.25rem;
+}
+
+.art--pinned .art__stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.art__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  padding: 0 var(--gutter);
+  margin-bottom: 1.25rem;
+}
+
+.art__head :global(.eyebrow) {
+  margin-bottom: 0.4rem;
+}
+
+/* The cards take all remaining height of the screen. */
+.art__viewport {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.art__track {
+  display: flex;
+  gap: 1.5rem;
+  height: 100%;
+  width: max-content;
+  padding: 0 var(--gutter);
+  will-change: transform;
+}
+
+.art__progress {
+  margin: 1rem var(--gutter) 0;
+  height: 2px;
+  background: var(--color-border);
+}
+
+.art__progress span {
+  display: block;
+  height: 100%;
+  background: var(--color-primary-hover);
+  transform-origin: left;
+}
+
+/* Reduced motion: no pinning, a normal swipeable row instead. */
+.art:not(.art--pinned) .art__viewport {
+  overflow-x: auto;
+  height: 80vh;
+  flex: none;
+}
+
+@media (max-width: 720px) {
+  .art__stage {
+    padding-top: 4.5rem;
+  }
+  .art__head {
+    margin-bottom: 1rem;
+  }
+  .art__track {
+    gap: 0.75rem;
+  }
+}

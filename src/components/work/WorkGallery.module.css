@@ -1,0 +1,89 @@
+.zone {
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+  scroll-margin-top: 70px;
+}
+
+.zone__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.zone__title span {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.zone__renders {
+  columns: 2 420px;
+  column-gap: 1rem;
+}
+
+.zone__renders .shot {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+.zone__sub {
+  margin: 2rem 0 1rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.zone__graphics {
+  columns: 4 220px;
+  column-gap: 1rem;
+}
+
+.shot {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  cursor: zoom-in;
+  overflow: hidden;
+  background: var(--color-surface);
+  color: inherit;
+  text-align: left;
+}
+
+.shot img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.7s var(--ease);
+}
+
+.shot--graphic {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  background: #0b0a18;
+}
+
+.shot:hover img {
+  transform: scale(1.04);
+}
+
+.shot__label {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 2rem 0.9rem 0.7rem;
+  font-size: 0.8rem;
+  background: linear-gradient(180deg, transparent, rgba(5, 4, 12, 0.85));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.shot:hover .shot__label,
+.shot:focus-visible .shot__label {
+  opacity: 1;
+}
