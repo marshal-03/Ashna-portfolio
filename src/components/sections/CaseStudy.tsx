@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { CaseShot, CaseStudy as CaseStudyData } from '@/data/caseStudies'
+import Reveal from '@/components/ui/Reveal'
 import s from './CaseStudy.module.css'
 
 const pad = (n: number) => String(n).padStart(2, '0')
@@ -105,56 +106,71 @@ export default function CaseStudy({
 
   return (
     <article className={s.case} id={`case-${study.slug}`}>
-      <header className={s.case__head}>
-        <p className={s.case__index}>
-          {pad(index + 1)} / {pad(total)}
-        </p>
-        <h3 className={s.case__brand}>
-          {study.brand}
-          {study.event && <span> · {study.event}</span>}
-        </h3>
-        <Link href={`/work/${study.slug}`} className={s.case__more}>
-          View all visuals →
-        </Link>
-      </header>
+      {/* Every block pops up from the bottom as it scrolls into view. */}
+      <Reveal>
+        <header className={s.case__head}>
+          <p className={s.case__index}>
+            {pad(index + 1)} / {pad(total)}
+          </p>
+          <h3 className={s.case__brand}>
+            {study.brand}
+            {study.event && <span> · {study.event}</span>}
+          </h3>
+          <Link href={`/work/${study.slug}`} className={s.case__more}>
+            View all visuals →
+          </Link>
+        </header>
+      </Reveal>
 
-      <Shot shot={study.hero} sizes="(max-width: 1280px) 100vw, 1200px" wide />
+      <Reveal>
+        <Shot shot={study.hero} sizes="(max-width: 1280px) 100vw, 1200px" wide />
+      </Reveal>
 
       {besideShot && (
         <div className={s.row}>
-          <Shot shot={besideShot} sizes="(max-width: 900px) 100vw, 600px" />
-          <div className={s.textWrap}>
-            <span className={`${s.blob} ${s['blob--right']}`} aria-hidden="true" />
-            <TextBlock study={study} />
-          </div>
+          <Reveal>
+            <Shot shot={besideShot} sizes="(max-width: 900px) 100vw, 600px" />
+          </Reveal>
+          <Reveal delay={150}>
+            <div className={s.textWrap}>
+              <span className={`${s.blob} ${s['blob--right']}`} aria-hidden="true" />
+              <TextBlock study={study} />
+            </div>
+          </Reveal>
         </div>
       )}
 
       {gridShots.length > 0 && (
         <div className={s.grid}>
-          {gridShots.map((shot) => (
-            <Shot key={shot.image.src} shot={shot} sizes="(max-width: 900px) 100vw, 600px" />
+          {gridShots.map((shot, i) => (
+            <Reveal key={shot.image.src} delay={(i % 2) * 150}>
+              <Shot shot={shot} sizes="(max-width: 900px) 100vw, 600px" />
+            </Reveal>
           ))}
         </div>
       )}
 
       {hasText && below && (
-        <div className={s.belowWrap}>
-          {decor.map((d) => (
-            <div key={d.alt} className={`${s.decor} ${s[`decor--${d.side}`]}`}>
-              <span className={s.blob} aria-hidden="true" />
-              <Image src={d.image} alt={d.alt} sizes="(max-width: 720px) 45vw, 320px" />
-            </div>
-          ))}
-          <TextBlock study={study} wide />
-        </div>
+        <Reveal>
+          <div className={s.belowWrap}>
+            {decor.map((d) => (
+              <div key={d.alt} className={`${s.decor} ${s[`decor--${d.side}`]}`}>
+                <span className={s.blob} aria-hidden="true" />
+                <Image src={d.image} alt={d.alt} sizes="(max-width: 720px) 45vw, 320px" />
+              </div>
+            ))}
+            <TextBlock study={study} wide />
+          </div>
+        </Reveal>
       )}
 
       {study.outcome && (
-        <div className={`${s.text} ${s.outcome}`}>
-          <h4>Project Outcome</h4>
-          <p>{study.outcome}</p>
-        </div>
+        <Reveal>
+          <div className={`${s.text} ${s.outcome}`}>
+            <h4>Project Outcome</h4>
+            <p>{study.outcome}</p>
+          </div>
+        </Reveal>
       )}
     </article>
   )
