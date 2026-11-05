@@ -1,0 +1,320 @@
+.case {
+  position: relative;
+  overflow: clip;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
+}
+
+.case + .case {
+  border-top: 1px solid rgba(160, 150, 255, 0.14);
+}
+
+.case__head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.case__index {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: #8c85ff;
+  font-variant-numeric: tabular-nums;
+}
+
+.case__brand {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+  line-height: 1.1;
+}
+
+.case__brand span {
+  color: #b9b4e6;
+}
+
+.case__more {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: #b9b4e6;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.case__more:hover {
+  color: #fff;
+}
+
+/* Section label above every image, as in the design: small bold uppercase. */
+.label {
+  font-size: clamp(0.78rem, 1vw, 0.9rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.shot {
+  min-width: 0;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.8);
+}
+
+/* Registration image beside the overview text. */
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.text {
+  position: relative;
+  padding-top: 1.6rem;
+  font-size: clamp(0.85rem, 1.05vw, 0.98rem);
+  line-height: 1.75;
+  color: #a9a4dc;
+}
+
+.text h4 {
+  color: #8c85ff;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.text p + p {
+  margin-top: 0.7rem;
+}
+
+.text p + h4,
+.text ul + h4 {
+  margin-top: 1.6rem;
+}
+
+/* Highlights: one per line, no dash (as in the Coca-Cola board). */
+.text .plain li {
+  padding-left: 0;
+}
+
+.text .plain li::before {
+  content: none;
+}
+
+/* Text placed beside an image gets a soft royal-blue circle behind it. */
+.textWrap {
+  position: relative;
+}
+
+.textWrap .text {
+  position: relative;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #1f3fd6 0%, #1733b8 45%, rgba(23, 51, 184, 0) 70%);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.blob--right {
+  width: clamp(16rem, 34vw, 30rem);
+  aspect-ratio: 1;
+  right: -14rem;
+  top: 10%;
+}
+
+/* Text placed under the images, with collaterals floating at the sides. */
+.belowWrap {
+  position: relative;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: clamp(1rem, 3vw, 2.5rem) 0 clamp(4rem, 8vw, 7rem);
+}
+
+.text--wide {
+  position: relative;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding-top: 0;
+  z-index: 1;
+}
+
+.decor {
+  position: absolute;
+  z-index: 0;
+}
+
+.decor img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.55));
+}
+
+.decor .blob {
+  width: 130%;
+  aspect-ratio: 1;
+  left: -15%;
+  top: -35%;
+}
+
+.decor--right {
+  right: -3%;
+  top: -6%;
+  width: clamp(10rem, 18vw, 16rem);
+  transform: rotate(-8deg);
+}
+
+.decor--left {
+  left: -2%;
+  bottom: -4%;
+  width: clamp(9rem, 17vw, 15rem);
+  transform: rotate(-12deg);
+}
+
+.decor--left .blob {
+  left: -45%;
+  top: 0;
+}
+
+.outcome {
+  max-width: 52rem;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: 0;
+}
+
+.sparkle--decor {
+  right: 24%;
+  bottom: 1rem;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.text ul {
+  list-style: none;
+}
+
+.text li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.text li::before {
+  content: '-';
+  position: absolute;
+  left: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* Extra render with an arrow pointing to its caption. */
+.extra {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.extra__note {
+  font-size: clamp(0.8rem, 1vw, 0.92rem);
+  line-height: 1.6;
+  color: #8c85ff;
+}
+
+.arrow {
+  display: block;
+  width: clamp(3.5rem, 6vw, 5rem);
+  margin: -2.2rem 0 0.6rem 0.5rem;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Four-point sparkle accents */
+.sparkle {
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: #fff;
+  filter: drop-shadow(0 0 8px rgba(200, 190, 255, 0.8));
+  pointer-events: none;
+}
+
+.sparkle--text {
+  right: 0;
+  bottom: -2.5rem;
+}
+
+.sparkle--a {
+  right: calc(var(--gutter) - 0.5rem);
+  top: clamp(3rem, 7vw, 5.5rem);
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.sparkle--b {
+  right: var(--gutter);
+  bottom: clamp(1.25rem, 3vw, 2rem);
+  width: 2rem;
+  height: 2rem;
+}
+
+@media (max-width: 900px) {
+  .row,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .text {
+    padding-top: 0;
+  }
+  .blob--right {
+    right: -10rem;
+  }
+  /* Collaterals sit in a row under the text instead of floating at the sides. */
+  .belowWrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+    padding-bottom: 2rem;
+  }
+  .text--wide {
+    order: -1;
+    flex: 1 1 100%;
+  }
+  .decor {
+    position: relative;
+    inset: auto;
+    width: min(42%, 14rem);
+  }
+}
+
+@media (max-width: 520px) {
+  .extra {
+    grid-template-columns: 1fr;
+  }
+  .arrow {
+    display: none;
+  }
+  .case__more {
+    margin-left: 0;
+  }
+}
