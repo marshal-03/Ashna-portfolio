@@ -46,3 +46,27 @@ python scripts/build_works.py C:/portfolio/extracted public/works src/data/works
 
 The script resizes everything to WebP (2000px full size + 720px thumbnails). New brands get a page at
 `/work/<slug>` automatically.
+
+## Deploying to Vercel (automatic)
+
+`.github/workflows/vercel-deploy.yml` deploys the site on every push:
+
+- push to `main` → **production**
+- push to any other branch → **preview** (the URL is shown in the GitHub Actions run summary)
+
+`vercel.json` turns off Vercel's own Git deployments so each push is deployed once, by the workflow.
+
+One-time setup:
+
+1. Create the project and link it (creates `.vercel/project.json`, which is git-ignored):
+
+   ```bash
+   npx vercel link
+   ```
+
+2. Create a token at https://vercel.com/account/tokens.
+3. In GitHub → repo **Settings → Secrets and variables → Actions**, add:
+   - `VERCEL_TOKEN` — the token from step 2
+   - `VERCEL_ORG_ID` — `orgId` from `.vercel/project.json`
+   - `VERCEL_PROJECT_ID` — `projectId` from `.vercel/project.json`
+4. Push. Merge your work into `main` to publish it to production.
