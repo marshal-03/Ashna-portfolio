@@ -54,7 +54,12 @@ export default function Marquee({
 
     let frame = 0
     let last = performance.now()
+    let onScreen = false
     const tick = (now: number) => {
+      if (!onScreen) {
+        frame = 0 // sleep until the strip is visible again
+        return
+      }
       const dt = Math.min(64, now - last) / 1000
       last = now
       const drifting = !reduced && !manual && now >= resumeAt
@@ -76,7 +81,15 @@ export default function Marquee({
       if (drifting || jumped) el.scrollLeft = pos
       frame = requestAnimationFrame(tick)
     }
-    frame = requestAnimationFrame(tick)
+    // Only run the loop while the strip is on screen.
+    const observer = new IntersectionObserver(([entry]) => {
+      onScreen = Boolean(entry?.isIntersecting)
+      if (onScreen && !frame) {
+        last = performance.now()
+        frame = requestAnimationFrame(tick)
+      }
+    })
+    observer.observe(el)
 
     // --- Touch: only a mostly-horizontal swipe takes over ---
     let tx = 0
@@ -165,6 +178,7 @@ export default function Marquee({
     window.addEventListener('resize', onResize)
     return () => {
       cancelAnimationFrame(frame)
+      observer.disconnect()
       el.removeEventListener('touchstart', onTouchStart)
       el.removeEventListener('touchmove', onTouchMove)
       el.removeEventListener('touchend', onTouchEnd)

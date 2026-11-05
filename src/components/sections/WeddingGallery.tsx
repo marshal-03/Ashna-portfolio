@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState, type CSSProperties } from 'react'
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import Image from 'next/image'
 import { weddingWorks as works } from '@/data/wedding'
 import { useReducedMotion } from '@/hooks/useMediaQuery'
@@ -38,70 +38,101 @@ function layout(vw: number, vh: number) {
   return { cardH, widths, centres, circumference, radius, scrollLength: circumference * 0.45 }
 }
 
+function ringState(progress: number, centres: number[], circumference: number, radius: number) {
+  // Ring rotation in arc length: one full turn across the pinned scroll.
+  const turned = progress * circumference
+  // Angle of each card relative to the front, wrapped into -180..180 degrees.
+  return centres.map((c) => {
+    const deg = (((c - turned) / radius) * 180) / Math.PI
+    return ((((deg + 180) % 360) + 360) % 360) - 180
+  })
+}
+
+function cardStyle(deg: number, radius: number): CSSProperties {
+  const visible = Math.abs(deg) < VISIBLE_DEG
+  return {
+    opacity: clamp((VISIBLE_DEG - Math.abs(deg)) / FADE_DEG, 0, 1),
+    visibility: visible ? 'visible' : 'hidden',
+    transform:
+      `translate(-50%, -50%) translateZ(${(radius * (1 - PUSH_BACK)).toFixed(1)}px) ` +
+      `rotateY(${(-deg).toFixed(2)}deg) translateZ(${(-radius).toFixed(1)}px)`,
+  }
+}
+
+const nearestToFront = (angles: number[]) =>
+  angles.reduce((best, deg, i) => (Math.abs(deg) < Math.abs(angles[best]!) ? i : best), 0)
+
 export default function WeddingGallery() {
   const section = useRef<HTMLElement>(null)
+  const cardRefs = useRef<(HTMLButtonElement | null)[]>([])
   const [size, setSize] = useState({ vw: 1440, vh: 900 })
-  const [progress, setProgress] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0)
   const [open, setOpen] = useState<number | null>(null)
   const pinned = !useReducedMotion()
-  const { cardH, widths, centres, circumference, radius, scrollLength } = layout(size.vw, size.vh)
+  const geometry = useMemo(() => layout(size.vw, size.vh), [size.vw, size.vh])
+  const { cardH, widths, centres, circumference, radius, scrollLength } = geometry
 
+  // Size changes re-render; scrolling only rewrites each card's transform directly (no re-render).
   useEffect(() => {
-    let frame = 0
-    const update = () => {
-      frame = 0
+    const onResize = () =>
       setSize((prev) =>
         prev.vw === window.innerWidth && prev.vh === window.innerHeight
           ? prev
           : { vw: window.innerWidth, vh: window.innerHeight },
       )
-      const el = section.current
-      if (!el) return
+    const first = requestAnimationFrame(onResize)
+    window.addEventListener('resize', onResize)
+    return () => {
+      cancelAnimationFrame(first)
+      window.removeEventListener('resize', onResize)
+    }
+  }, [])
+
+  useEffect(() => {
+    const el = section.current
+    if (!el || !pinned) return
+    let frame = 0
+    let last = -1
+    const update = () => {
+      frame = 0
       const distance = el.offsetHeight - window.innerHeight
-      setProgress(distance > 0 ? clamp(-el.getBoundingClientRect().top / distance, 0, 1) : 0)
+      const progress = distance > 0 ? clamp(-el.getBoundingClientRect().top / distance, 0, 1) : 0
+      if (progress === last) return
+      last = progress
+      const angles = ringState(progress, geometry.centres, geometry.circumference, geometry.radius)
+      angles.forEach((deg, i) => {
+        const card = cardRefs.current[i]
+        if (!card) return
+        const st = cardStyle(deg, geometry.radius)
+        card.style.opacity = String(st.opacity)
+        card.style.visibility = String(st.visibility)
+        card.style.transform = String(st.transform)
+        card.tabIndex = st.visibility === 'hidden' ? -1 : 0
+      })
+      setActiveIndex(nearestToFront(angles)) // only re-renders when the front card changes
     }
     const schedule = () => {
       if (!frame) frame = requestAnimationFrame(update)
     }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) window.addEventListener('scroll', schedule, { passive: true })
+        else window.removeEventListener('scroll', schedule)
+        schedule()
+      },
+      { rootMargin: '200px 0px' },
+    )
+    observer.observe(el)
     schedule()
-    window.addEventListener('scroll', schedule, { passive: true })
-    window.addEventListener('resize', schedule)
     return () => {
+      observer.disconnect()
       window.removeEventListener('scroll', schedule)
-      window.removeEventListener('resize', schedule)
       cancelAnimationFrame(frame)
     }
-  }, [pinned])
+  }, [pinned, geometry])
 
-  // Ring rotation in arc length: one full turn across the pinned scroll.
-  const turned = progress * circumference
-
-  // Angle of each card relative to the front, wrapped into -180..180 degrees.
-  const angles = centres.map((c) => {
-    const deg = (((c - turned) / radius) * 180) / Math.PI
-    return ((((deg + 180) % 360) + 360) % 360) - 180
-  })
-  // The card facing the viewer gets its title shown under the ring.
-  const activeIndex = angles.reduce(
-    (best, deg, i) => (Math.abs(deg) < Math.abs(angles[best]!) ? i : best),
-    0,
-  )
-
-  const cards = works.map((work, i) => {
-    const deg = angles[i]!
-    const visible = Math.abs(deg) < VISIBLE_DEG
-    const opacity = clamp((VISIBLE_DEG - Math.abs(deg)) / FADE_DEG, 0, 1)
-    const style: CSSProperties = {
-      width: widths[i],
-      height: cardH,
-      opacity,
-      visibility: visible ? 'visible' : 'hidden',
-      transform:
-        `translate(-50%, -50%) translateZ(${(radius * (1 - PUSH_BACK)).toFixed(1)}px) ` +
-        `rotateY(${(-deg).toFixed(2)}deg) translateZ(${(-radius).toFixed(1)}px)`,
-    }
-    return { work, i, style }
-  })
+  // Starting pose (before the first scroll update), also what the server renders.
+  const initialAngles = ringState(0, centres, circumference, radius)
 
   if (!pinned) {
     // Reduced motion: a plain swipeable row.
@@ -146,15 +177,21 @@ export default function WeddingGallery() {
       >
         <div className={s.stage} style={{ perspective: `${PERSPECTIVE}px` }}>
           <div className={s.ring}>
-            {cards.map(({ work, i, style }) => (
+            {works.map((work, i) => (
               <button
                 key={work.src}
+                ref={(node) => {
+                  cardRefs.current[i] = node
+                }}
                 type="button"
                 className={s.card}
-                style={style}
+                style={{
+                  width: widths[i],
+                  height: cardH,
+                  ...cardStyle(initialAngles[i]!, radius),
+                }}
                 onClick={() => setOpen(i)}
                 aria-label={`Open ${work.title}`}
-                tabIndex={style.visibility === 'hidden' ? -1 : 0}
               >
                 <Image
                   src={work.src}

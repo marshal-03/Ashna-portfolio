@@ -25,7 +25,9 @@ export default function Header() {
     let lastY = window.scrollY
     let idleTimer: ReturnType<typeof setTimeout> | undefined
 
-    const onScroll = () => {
+    let frame = 0
+    const update = () => {
+      frame = 0
       const y = window.scrollY
       setScrolled(y > 40)
       if (y <= 120) setHidden(false)
@@ -35,12 +37,17 @@ export default function Header() {
       clearTimeout(idleTimer)
       idleTimer = setTimeout(() => setHidden(false), SHOW_AFTER_IDLE_MS)
     }
+    // At most once per frame, however many scroll events arrive.
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update)
+    }
 
     // Pick up the initial position (e.g. after a reload part-way down the page).
     const first = requestAnimationFrame(() => setScrolled(window.scrollY > 40))
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
       cancelAnimationFrame(first)
+      cancelAnimationFrame(frame)
       window.removeEventListener('scroll', onScroll)
       clearTimeout(idleTimer)
     }
