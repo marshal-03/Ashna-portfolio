@@ -30,8 +30,8 @@
   display: grid;
   place-items: center;
   color: #fff;
-  background: rgba(5, 4, 12, 0.6);
-  backdrop-filter: blur(4px);
+  /* Near-solid instead of a backdrop blur, which would re-blur on every video frame. */
+  background: rgba(5, 4, 12, 0.78);
   cursor: pointer;
   transition: background 0.2s;
 }

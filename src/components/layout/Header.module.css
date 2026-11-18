@@ -7,6 +7,22 @@
     background 0.3s;
 }
 
+/* At the top of the page the header sits over the hero, whose left side is very light. A soft dark
+   scrim behind the bar keeps the links readable there; it fades out once the solid bar takes over. */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 -1.5rem;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(5, 4, 12, 0.6), rgba(5, 4, 12, 0.25) 65%, transparent);
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.header--solid::before {
+  opacity: 0;
+}
+
 .header--hidden {
   transform: translateY(-100%);
 }
@@ -35,7 +51,8 @@
   display: flex;
   gap: 1.75rem;
   font-size: 0.95rem;
-  color: var(--color-muted);
+  color: #e4e1f7;
+  text-shadow: 0 1px 8px rgba(5, 4, 12, 0.6);
 }
 
 .header__nav a:hover {
@@ -86,5 +103,42 @@
   }
   .header__id {
     align-items: flex-start;
+  }
+}
+
+/* Underline that draws in from the left on hover, and leaves to the right. */
+.header__nav a {
+  position: relative;
+}
+
+.header__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s var(--ease);
+}
+
+.header__nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* The bar's contents drop in once on first load ("backwards" so nothing stays applied after). */
+@media (prefers-reduced-motion: no-preference) {
+  .header__inner {
+    animation: header-in 0.9s var(--ease) 0.15s backwards;
+  }
+}
+
+@keyframes header-in {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
   }
 }

@@ -25,17 +25,6 @@ const items: { label: string; href: string; ids: string[]; icon: ReactNode }[] =
     ),
   },
   {
-    label: 'Sketches',
-    href: '/#portraits',
-    ids: ['portraits', 'portraits-gallery'],
-    icon: (
-      <>
-        <path d="M4 20l1.2-4.6L15.6 5a2.1 2.1 0 0 1 3 0l.4.4a2.1 2.1 0 0 1 0 3L8.6 18.8z" />
-        <path d="M13.8 6.8l3.4 3.4M4 20h6" />
-      </>
-    ),
-  },
-  {
     label: 'Animations',
     href: '/#art',
     ids: ['art', 'art-gallery'],
@@ -43,6 +32,17 @@ const items: { label: string; href: string; ids: string[]; icon: ReactNode }[] =
       <>
         <rect x="3" y="5" width="18" height="14" rx="3" />
         <path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" />
+      </>
+    ),
+  },
+  {
+    label: 'Sketches',
+    href: '/#portraits',
+    ids: ['portraits', 'portraits-gallery'],
+    icon: (
+      <>
+        <path d="M4 20l1.2-4.6L15.6 5a2.1 2.1 0 0 1 3 0l.4.4a2.1 2.1 0 0 1 0 3L8.6 18.8z" />
+        <path d="M13.8 6.8l3.4 3.4M4 20h6" />
       </>
     ),
   },

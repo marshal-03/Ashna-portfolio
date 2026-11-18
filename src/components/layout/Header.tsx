@@ -6,10 +6,11 @@ import { profile } from '@/data/portfolio'
 import s from './Header.module.css'
 
 const links = [
+  { label: 'Services', href: '/#services' },
   { label: 'Works', href: '/#event-design' },
   { label: 'Weddings', href: '/#weddings' },
-  { label: 'Sketches', href: '/#portraits' },
   { label: 'Animations', href: '/#art' },
+  { label: 'Sketches', href: '/#portraits' },
   { label: 'About', href: '/#about' },
 ]
 

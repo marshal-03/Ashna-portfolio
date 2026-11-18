@@ -1,11 +1,21 @@
-import type { ArtPiece, Profile, SocialLink, Tool } from '@/types'
+import type {
+  ArtPiece,
+  ProcessStep,
+  Profile,
+  Service,
+  SocialLink,
+  Testimonial,
+  Tool,
+} from '@/types'
 
 export const profile: Profile = {
   name: 'Ashna Mary',
   firstName: 'Ashna',
   role: '2D Designer',
   since: 'Since 2002',
-  intro: 'Explore my creative journey. Download my CV to learn more.',
+  intro:
+    'I design stages, LED backdrops, entry arches and event branding for corporate events and ' +
+    'weddings — as print-ready 2D artwork and realistic 3D mock-ups.',
   bio:
     'Creative and detail-oriented 2D designer with a passion for transforming ideas into visually ' +
     'stunning event concepts. Skilled in 2D designing, stage layouts, backdrops, invitation graphics, ' +
@@ -15,7 +25,68 @@ export const profile: Profile = {
   email: 'ashnaart24@gmail.com',
   // public/Ashna-Mary-CV.pdf
   resumeUrl: '/Ashna-Mary-CV.pdf',
+  // Fill these in to show them in the contact section (left empty, they stay hidden).
+  whatsapp: '',
+  location: '',
+  availability: '',
 }
+
+/** What clients can hire Ashna for — shown in the Services section. */
+export const services: Service[] = [
+  {
+    icon: 'stage',
+    title: 'Stage & LED Backdrops',
+    text: 'Main stage designs, centre and side LED content, and backdrops sized exactly for the venue.',
+  },
+  {
+    icon: 'arch',
+    title: 'Entry Arches & Photobooths',
+    text: 'Welcome gateways, tunnels and branded photo spots that guests remember and share.',
+  },
+  {
+    icon: 'desk',
+    title: 'Registration & Signage',
+    text: 'Registration desks, standees, directional boards and wayfinding across the venue.',
+  },
+  {
+    icon: 'badge',
+    title: 'Event Collaterals',
+    text: 'Lanyards, badges, wristbands, game stalls and every small touchpoint, on brand.',
+  },
+  {
+    icon: 'wedding',
+    title: 'Wedding Stationery & Décor',
+    text: 'Invitations, welcome boards, menu cards, tags and keepsakes for each function.',
+  },
+  {
+    icon: 'cube',
+    title: '3D Event Mock-ups',
+    text: 'Realistic 3D renders of the venue so clients can see the concept before production.',
+  },
+]
+
+/** How a project runs, shown as four steps. */
+export const processSteps: ProcessStep[] = [
+  {
+    title: 'Brief',
+    text: 'We talk through the event, brand guidelines, venue sizes and the feel you want.',
+  },
+  {
+    title: 'Concept',
+    text: 'A visual direction and key artwork, shown as 3D mock-ups of the real space.',
+  },
+  {
+    title: 'Design',
+    text: 'Every element designed to size — stage, LED, arch, desk, signage and collaterals.',
+  },
+  {
+    title: 'Delivery',
+    text: 'Print-ready and screen-ready files for each vendor, with revisions until it’s right.',
+  },
+]
+
+/** Client quotes. The section stays hidden until at least one real quote is added here. */
+export const testimonials: Testimonial[] = []
 
 export const tools: Tool[] = [
   { short: 'Ps', name: 'Adobe Photoshop' },
@@ -23,6 +94,7 @@ export const tools: Tool[] = [
   { short: 'Id', name: 'Adobe InDesign' },
   { short: 'An', name: 'Adobe Animate' },
   { short: 'Ae', name: 'Adobe After Effects' },
+  { short: 'Ma', name: 'Autodesk Maya' },
 ]
 
 export const socials: SocialLink[] = [

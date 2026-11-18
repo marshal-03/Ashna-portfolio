@@ -16,8 +16,21 @@ const delay = (d: string) => ({ '--d': d }) as CSSProperties
 export default function Hero() {
   const hero = useRef<HTMLElement>(null)
 
+  // The sheen repaints the big blurred-shadow text every frame, so only run it while the hero shows.
+  useEffect(() => {
+    const el = hero.current
+    if (!el) return
+    const observer = new IntersectionObserver(([entry]) =>
+      el.classList.toggle(s['hero--away']!, !entry?.isIntersecting),
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   /*
-   * Subtle depth: titles and portrait drift a few pixels with the mouse, in opposite directions.
+   * Mouse depth: the "PORTFOLIO" backdrop, the portrait and the two titles each drift by a different
+   * amount as the mouse moves, so the hero feels layered. A frame loop eases towards the pointer
+   * (smoother than restarting a CSS transition on every mouse event) and stops once settled.
    * Only on devices with a fine pointer, and never when reduced motion is requested.
    */
   useEffect(() => {
@@ -29,22 +42,40 @@ export default function Hero() {
     if (!canParallax) return
 
     let frame = 0
-    let target = { x: 0, y: 0 }
+    const target = { x: 0, y: 0 }
+    const current = { x: 0, y: 0 }
+
+    const tick = () => {
+      // Ease ~10% of the remaining distance per frame.
+      current.x += (target.x - current.x) * 0.1
+      current.y += (target.y - current.y) * 0.1
+      el.style.setProperty('--px', current.x.toFixed(4))
+      el.style.setProperty('--py', current.y.toFixed(4))
+      const settled =
+        Math.abs(target.x - current.x) < 0.001 && Math.abs(target.y - current.y) < 0.001
+      frame = settled ? 0 : requestAnimationFrame(tick)
+    }
+    const start = () => {
+      if (!frame) frame = requestAnimationFrame(tick)
+    }
+
     const onPointerMove = (e: PointerEvent) => {
       const r = el.getBoundingClientRect()
-      target = { x: (e.clientX - r.left) / r.width - 0.5, y: (e.clientY - r.top) / r.height - 0.5 }
-      if (!frame) {
-        frame = requestAnimationFrame(() => {
-          frame = 0
-          el.style.setProperty('--px', target.x.toFixed(3))
-          el.style.setProperty('--py', target.y.toFixed(3))
-        })
-      }
+      target.x = (e.clientX - r.left) / r.width - 0.5
+      target.y = (e.clientY - r.top) / r.height - 0.5
+      start()
+    }
+    const onPointerLeave = () => {
+      target.x = 0
+      target.y = 0
+      start()
     }
 
     el.addEventListener('pointermove', onPointerMove)
+    el.addEventListener('pointerleave', onPointerLeave)
     return () => {
       el.removeEventListener('pointermove', onPointerMove)
+      el.removeEventListener('pointerleave', onPointerLeave)
       cancelAnimationFrame(frame)
     }
   }, [])
@@ -95,20 +126,27 @@ export default function Hero() {
       </p>
 
       <div className={s.hero__intro}>
+        <p className={s.hero__tag}>Event · Brand · Wedding Design</p>
         <p>{profile.intro}</p>
-        <a href={profile.resumeUrl} className="btn" download>
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-            <path
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 7v8m0 0-3.2-3.2M12 15l3.2-3.2M7.5 4.6A9 9 0 1 0 16.5 4.6"
-            />
-          </svg>
-          Download My CV
-        </a>
+        <div className={s.hero__ctas}>
+          <a href="#contact" className="btn">
+            Start a project
+            <span aria-hidden="true">→</span>
+          </a>
+          <a href={profile.resumeUrl} className={s.hero__cv} download>
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 7v8m0 0-3.2-3.2M12 15l3.2-3.2M7.5 4.6A9 9 0 1 0 16.5 4.6"
+              />
+            </svg>
+            Download CV
+          </a>
+        </div>
       </div>
 
       <div className={s.hero__follow}>

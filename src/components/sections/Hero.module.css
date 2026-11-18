@@ -4,14 +4,26 @@
   position: relative;
   min-height: 100svh;
   overflow: hidden;
-  background:
-    var(--hero-bg) left top / cover no-repeat,
-    #000;
+  background: #000;
   display: grid;
   grid-template-columns: 1fr minmax(0, 1.25fr) 1fr;
   grid-template-rows: 1fr auto auto;
   padding: 7rem var(--gutter) 2.5rem;
   isolation: isolate;
+  /* Gives the portrait's small turn towards the pointer real depth. */
+  perspective: 1400px;
+}
+
+/* "PORTFOLIO" backdrop on its own layer, slightly oversized so it can drift with the mouse
+   (furthest layer: moves the least, against the pointer). */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -3%;
+  z-index: -2;
+  background: var(--hero-bg) left top / cover no-repeat;
+  transform: translate3d(calc(var(--px) * -26px), calc(var(--py) * -16px), 0);
+  will-change: transform;
 }
 
 .hero__portrait {
@@ -25,8 +37,10 @@
   z-index: -1;
   filter: drop-shadow(0 0 60px rgba(0, 0, 0, 0.55));
   animation: rise 2s var(--ease) both;
-  translate: calc(var(--px) * 12px) calc(var(--py) * 8px);
-  transition: translate 0.6s var(--ease);
+  /* Middle layer: follows the pointer and turns a touch towards it. */
+  translate: calc(var(--px) * 34px) calc(var(--py) * 18px);
+  rotate: y calc(var(--px) * 6deg);
+  will-change: translate;
 }
 
 .hero__hello,
@@ -38,8 +52,13 @@
   flex-direction: column;
   align-self: center;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-  translate: calc(var(--px) * -22px) calc(var(--py) * -14px);
-  transition: translate 0.6s var(--ease);
+  /* Front layer: moves the most, against the pointer. */
+  translate: calc(var(--px) * -56px) calc(var(--py) * -30px);
+}
+
+/* The role sits a little further forward than the greeting, for extra depth. */
+.hero__role {
+  translate: calc(var(--px) * -72px) calc(var(--py) * -38px);
 }
 
 /* Masked line reveal */
@@ -53,16 +72,23 @@
 .line__in {
   display: inline-block;
   animation: line-up 2s var(--ease) var(--d, 0s) both;
+  /* Own GPU layer, so the entrance keeps running smoothly while the page is still loading. */
+  will-change: transform, opacity;
 }
 
+/* Only transform and opacity animate (no letter-spacing): the browser can run that on the GPU
+   without re-laying out the hero each frame, which is what made the titles stutter on load.
+   The slight horizontal stretch gives the same "spread out, then settle" look. */
 @keyframes line-up {
   from {
-    transform: translateY(110%) skewY(7deg);
-    letter-spacing: 0.18em;
+    transform: translateY(110%) skewY(7deg) scaleX(1.12);
     opacity: 0;
   }
   60% {
     opacity: 1;
+  }
+  to {
+    transform: none;
   }
 }
 
@@ -88,6 +114,19 @@
   animation:
     line-up 2s var(--ease) var(--d, 0s) both,
     sheen 9s ease-in-out calc(var(--d, 0s) + 2s) infinite;
+}
+
+/* Off screen: freeze the sheen (it would otherwise keep repainting forever). Only the sheen — the
+   entrance (first in the list) keeps running, or a quick scroll would leave the title half-risen. */
+.hero--away .sheen {
+  animation-play-state: running, paused;
+}
+
+/* Phones and tablets: play the entrance only, no endless sheen loop. */
+@media (hover: none) {
+  .sheen {
+    animation: line-up 2s var(--ease) var(--d, 0s) both;
+  }
 }
 
 @keyframes sheen {
@@ -136,12 +175,39 @@
   align-self: end;
   font-size: clamp(1rem, 1.35vw, 1.3rem);
   line-height: 1.6;
-  max-width: 24rem;
+  max-width: 27rem;
   animation: fade 1.6s 1.6s var(--ease) both;
 }
 
-.hero__intro :global(.btn) {
-  margin-top: 1.75rem;
+.hero__tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c9c0ff;
+  margin-bottom: 0.6rem;
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.4rem;
+  margin-top: 1.5rem;
+}
+
+.hero__cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 2px;
+}
+
+.hero__cv:hover {
+  color: #fff;
+  border-color: #fff;
 }
 
 .hero__follow {
@@ -193,6 +259,10 @@
     grid-template-rows: auto auto auto auto;
     padding-top: 6rem;
     min-height: 0;
+  }
+  .hero::before {
+    inset: 0;
+    transform: none;
     /* Fit the whole "PORTFOLIO" word across the screen; a little vertical stretch suits the
        tall condensed letters and puts the word behind the titles and portrait. */
     background-size: 100% clamp(300px, 50vh, 480px);
@@ -209,13 +279,14 @@
     align-items: flex-end;
     text-align: right;
   }
+  /* Lower minimums so "ASHNA" and "DESIGNER" never touch on narrow (320px) phones. */
   .hero__hi,
   .hero__role-top {
-    font-size: clamp(2.2rem, 9vw, 4rem);
+    font-size: clamp(1.8rem, 9vw, 4rem);
   }
   .hero__first,
   .hero__role-bottom {
-    font-size: clamp(2rem, 8.5vw, 4rem);
+    font-size: clamp(1.6rem, 8.5vw, 4rem);
   }
   .hero__portrait {
     position: relative;

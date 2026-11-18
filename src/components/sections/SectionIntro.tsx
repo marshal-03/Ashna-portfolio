@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, type ReactNode } from 'react'
-import { useReducedMotion } from '@/hooks/useMediaQuery'
+import { usePhone, useReducedMotion } from '@/hooks/useMediaQuery'
 import s from './SectionIntro.module.css'
 
 /*
@@ -31,8 +31,41 @@ export default function SectionIntro({
   const wrap = useRef<HTMLDivElement>(null)
   const topRef = useRef<HTMLDivElement>(null)
   const lineRefs = useRef<(HTMLSpanElement | null)[]>([])
-  const pinned = !useReducedMotion()
+  const reduced = useReducedMotion()
+  const phone = usePhone()
+  // Phones skip the 2–2.6 screen pinned scroll (it left a lot of empty scrolling); the title just
+  // rises into place once it comes into view.
+  const pinned = !reduced && !phone
+  const rise = !reduced && phone
   const hasTop = Boolean(top)
+
+  useEffect(() => {
+    const el = wrap.current
+    if (!el || !rise) return
+    // Clear anything the pinned animation wrote before the layout switched.
+    const t = topRef.current
+    if (t) {
+      t.style.opacity = ''
+      t.style.transform = ''
+      t.style.visibility = ''
+    }
+    lineRefs.current.forEach((line) => {
+      if (!line) return
+      line.style.transform = ''
+      line.style.opacity = ''
+    })
+    el.classList.remove(s['intro--in']!)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return
+        el.classList.add(s['intro--in']!)
+        observer.disconnect()
+      },
+      { threshold: 0.3 },
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [rise])
 
   useEffect(() => {
     const el = wrap.current
@@ -95,8 +128,11 @@ export default function SectionIntro({
     <div
       id={id}
       ref={wrap}
-      className={pinned ? `${s.intro} ${s['intro--pinned']}` : s.intro}
-      style={pinned ? { height: top ? '260vh' : '200vh' } : undefined}
+      className={[s.intro, pinned && s['intro--pinned'], rise && s['intro--rise']]
+        .filter(Boolean)
+        .join(' ')}
+      // Kept short (users found the long pinned intros slow): about half a screen of scroll each.
+      style={pinned ? { height: top ? '170vh' : '150vh' } : undefined}
     >
       <div className={s.stage}>
         {top && (
@@ -113,7 +149,13 @@ export default function SectionIntro({
                 lineRefs.current[i] = node
               }}
               className={s.line}
-              style={pinned ? { transform: 'translate3d(0, 55vh, 0)', opacity: 0 } : undefined}
+              style={
+                pinned
+                  ? { transform: 'translate3d(0, 55vh, 0)', opacity: 0 }
+                  : rise
+                    ? { transitionDelay: `${i * 140}ms` }
+                    : undefined
+              }
               aria-hidden="true"
             >
               {line}

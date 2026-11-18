@@ -1,9 +1,68 @@
 .not-found {
+  min-height: 80svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: var(--section-gap) 1rem;
   text-align: center;
 }
 
-.not-found a {
-  color: var(--color-primary);
-  font-weight: 600;
+/* Big 404 whose digits float gently, out of step with each other. */
+.code {
+  display: flex;
+  gap: 0.05em;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(6rem, 22vw, 14rem);
+  line-height: 1;
+  color: #f1ecff;
+  text-shadow: 0 0 50px rgba(170, 150, 255, 0.4);
+}
+
+.code span {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .code span {
+    animation: float 3.6s ease-in-out infinite;
+  }
+  .code span:nth-child(2) {
+    animation-delay: -1.2s;
+  }
+  .code span:nth-child(3) {
+    animation-delay: -2.4s;
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-14px) rotate(-3deg);
+  }
+}
+
+.text {
+  margin-top: 1rem;
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  --d: 0.2s;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: 2rem;
+  --d: 0.35s;
+}
+
+.secondary {
+  color: #c9c0ff;
+}
+
+.secondary:hover {
+  color: #fff;
 }

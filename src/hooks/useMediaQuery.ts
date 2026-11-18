@@ -18,3 +18,6 @@ export function useMediaQuery(query: string, serverValue = false) {
 }
 
 export const useReducedMotion = () => useMediaQuery('(prefers-reduced-motion: reduce)')
+
+/** Phone-sized screens, where the long pinned scroll sections are swapped for compact versions. */
+export const usePhone = () => useMediaQuery('(max-width: 720px)')

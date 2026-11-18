@@ -1,0 +1,37 @@
+.testimonials {
+  padding: 0 0 var(--section-gap);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  list-style: none;
+}
+
+.card {
+  height: 100%;
+  padding: clamp(1.4rem, 2.5vw, 2rem);
+  border-radius: 14px;
+  border: 1px solid rgba(160, 150, 255, 0.16);
+  background: rgba(20, 17, 48, 0.6);
+}
+
+.card blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.55;
+}
+
+.card figcaption {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.card figcaption span {
+  color: var(--color-muted);
+}

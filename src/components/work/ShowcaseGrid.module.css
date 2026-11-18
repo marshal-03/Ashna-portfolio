@@ -1,0 +1,135 @@
+.wrap {
+  padding-top: clamp(3.5rem, 8vw, 6rem);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 1.75rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.chip span {
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+
+.chip:hover {
+  border-color: rgba(140, 133, 255, 0.7);
+}
+
+.chip--on {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.chip--on span {
+  color: #e6e3ff;
+}
+
+.grid {
+  columns: 4 240px;
+  column-gap: 1rem;
+}
+
+.shot {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0;
+  border: 0;
+  break-inside: avoid;
+  cursor: zoom-in;
+  overflow: hidden;
+  background: var(--color-surface);
+  color: inherit;
+  text-align: left;
+}
+
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.7s var(--ease);
+}
+
+.shot:hover img {
+  transform: scale(1.04);
+}
+
+.shot__label {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 2rem 0.9rem 0.7rem;
+  font-size: 0.8rem;
+  background: linear-gradient(180deg, transparent, rgba(5, 4, 12, 0.85));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.shot:hover .shot__label,
+.shot:focus-visible .shot__label {
+  opacity: 1;
+}
+
+@media (max-width: 560px) {
+  .grid {
+    columns: 2;
+    column-gap: 0.6rem;
+  }
+  .shot {
+    margin-bottom: 0.6rem;
+  }
+}
+
+/* Picking a brand: the new set of tiles fades up together. */
+@media (prefers-reduced-motion: no-preference) {
+  .grid {
+    animation: grid-in 0.55s var(--ease) both;
+  }
+}
+
+@keyframes grid-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+/* Chip press feedback. */
+.chip:active {
+  transform: scale(0.95);
+}
+
+.chip {
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.15s;
+}

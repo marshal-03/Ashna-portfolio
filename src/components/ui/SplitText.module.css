@@ -1,0 +1,29 @@
+.line {
+  display: block;
+}
+
+/* Clips each word so it appears to rise from behind a line. Padding keeps descenders and italics
+   from being cut off. */
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0.06em 0.04em 0.14em;
+  margin: -0.06em -0.04em -0.14em;
+}
+
+.word {
+  display: inline-block;
+  transition:
+    transform 0.9s var(--ease),
+    opacity 0.6s var(--ease);
+  transition-delay: calc(var(--i) * var(--stagger));
+}
+
+/* Hidden only once the script is running, so the text never stays invisible without JS. */
+.ready:not(.in) .word {
+  transform: translateY(105%) rotate(4deg);
+  opacity: 0;
+  /* Jump straight to hidden (no animating out); the rise plays once .in is added. */
+  transition: none;
+}

@@ -12,3 +12,97 @@
     radial-gradient(ellipse 55% 35% at 10% 60%, rgba(50, 40, 150, 0.22), transparent 70%),
     linear-gradient(180deg, #181238 0%, #0c0b2c 18%, #0e0c36 60%, #0b0a26 100%);
 }
+
+/* Smaller cards for the events not featured in full. */
+.more {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 4.5rem) var(--gutter) clamp(1rem, 3vw, 2rem);
+  border-top: 1px solid rgba(160, 150, 255, 0.14);
+}
+
+.more__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.more__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  list-style: none;
+}
+
+.card {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(20, 17, 48, 0.7);
+  border: 1px solid rgba(160, 150, 255, 0.14);
+  transition:
+    transform 0.35s var(--ease),
+    border-color 0.35s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(160, 150, 255, 0.45);
+}
+
+.card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.card__media img {
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.card:hover .card__media img {
+  transform: scale(1.05);
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 1.15rem 1.2rem;
+}
+
+.card__brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+
+.card__event {
+  color: #b9b4e6;
+  font-size: 0.9rem;
+}
+
+.card__cta {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: #8c85ff;
+}
+
+@media (max-width: 900px) {
+  .more__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Closing call-to-action leading to the full showcase page. */
+.viewAll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3.5rem) var(--gutter) clamp(4rem, 9vw, 6.5rem);
+  text-align: center;
+}

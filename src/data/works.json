@@ -28,7 +28,7 @@
           },
           {
             "title": "STAGE DESIGN CENTER LED 31x14.9ft",
-            "kind": "render",
+            "kind": "graphic",
             "src": "/works/dark-fantasy/stage/stage-design-center-led-31x14-9ft.webp",
             "thumb": "/works/dark-fantasy/stage/stage-design-center-led-31x14-9ft-sm.webp",
             "width": 2000,
@@ -36,7 +36,7 @@
           },
           {
             "title": "STAGE DESIGN SIDE LED 31x14.9ft -01",
-            "kind": "render",
+            "kind": "graphic",
             "src": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-01.webp",
             "thumb": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-01-sm.webp",
             "width": 2000,
@@ -44,7 +44,7 @@
           },
           {
             "title": "STAGE DESIGN SIDE LED 31x14.9ft -02",
-            "kind": "render",
+            "kind": "graphic",
             "src": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-02.webp",
             "thumb": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-02-sm.webp",
             "width": 2000,
@@ -52,7 +52,7 @@
           },
           {
             "title": "STAGE DESIGN SIDE LED 31x14.9ft -03",
-            "kind": "render",
+            "kind": "graphic",
             "src": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-03.webp",
             "thumb": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-03-sm.webp",
             "width": 2000,
@@ -60,7 +60,7 @@
           },
           {
             "title": "STAGE DESIGN SIDE LED 31x14.9ft -04",
-            "kind": "render",
+            "kind": "graphic",
             "src": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-04.webp",
             "thumb": "/works/dark-fantasy/stage/stage-design-side-led-31x14-9ft-04-sm.webp",
             "width": 2000,
@@ -82,7 +82,7 @@
           },
           {
             "title": "ENTRY ARCH TUNNEL SIDE 13X11.6ft",
-            "kind": "render",
+            "kind": "graphic",
             "src": "/works/dark-fantasy/entry-arch/entry-arch-tunnel-side-13x11-6ft.webp",
             "thumb": "/works/dark-fantasy/entry-arch/entry-arch-tunnel-side-13x11-6ft-sm.webp",
             "width": 2000,
@@ -90,7 +90,7 @@
           },
           {
             "title": "ENTRY ARCH TUNNEL SIDE 25x10.6ft 2",
-            "kind": "render",
+            "kind": "graphic",
             "src": "/works/dark-fantasy/entry-arch/entry-arch-tunnel-side-25x10-6ft-2.webp",
             "thumb": "/works/dark-fantasy/entry-arch/entry-arch-tunnel-side-25x10-6ft-2-sm.webp",
             "width": 2000,
@@ -112,7 +112,7 @@
           },
           {
             "title": "REGISTRATION DESK BD 14x8ft and FD14 16x8-01",
-            "kind": "render",
+            "kind": "graphic",
             "src": "/works/dark-fantasy/registration-desk/registration-desk-bd-14x8ft-and-fd14-16x8-01.webp",
             "thumb": "/works/dark-fantasy/registration-desk/registration-desk-bd-14x8ft-and-fd14-16x8-01-sm.webp",
             "width": 2000,
@@ -120,7 +120,7 @@
           },
           {
             "title": "REGISTRATION DESK BD 14x8ft and FD14 16x8-02",
-            "kind": "render",
+            "kind": "graphic",
             "src": "/works/dark-fantasy/registration-desk/registration-desk-bd-14x8ft-and-fd14-16x8-02.webp",
             "thumb": "/works/dark-fantasy/registration-desk/registration-desk-bd-14x8ft-and-fd14-16x8-02-sm.webp",
             "width": 2000,
@@ -265,14 +265,6 @@
         "slug": "stage",
         "items": [
           {
-            "title": "20x18 Center",
-            "kind": "render",
-            "src": "/works/coca-cola/stage/20x18-center.webp",
-            "thumb": "/works/coca-cola/stage/20x18-center-sm.webp",
-            "width": 2000,
-            "height": 1800
-          },
-          {
             "title": "5",
             "kind": "render",
             "src": "/works/coca-cola/stage/5.webp",
@@ -297,8 +289,16 @@
             "height": 1081
           },
           {
+            "title": "20x18 Center",
+            "kind": "graphic",
+            "src": "/works/coca-cola/stage/20x18-center.webp",
+            "thumb": "/works/coca-cola/stage/20x18-center-sm.webp",
+            "width": 2000,
+            "height": 1800
+          },
+          {
             "title": "Left Screen 20x16",
-            "kind": "render",
+            "kind": "graphic",
             "src": "/works/coca-cola/stage/left-screen-20x16.webp",
             "thumb": "/works/coca-cola/stage/left-screen-20x16-sm.webp",
             "width": 1440,
@@ -306,7 +306,7 @@
           },
           {
             "title": "Right Screen 20x16",
-            "kind": "render",
+            "kind": "graphic",
             "src": "/works/coca-cola/stage/right-screen-20x16.webp",
             "thumb": "/works/coca-cola/stage/right-screen-20x16-sm.webp",
             "width": 1440,
