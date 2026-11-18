@@ -107,6 +107,93 @@ button {
   line-height: 1.1;
 }
 
+/* ---------- Small site-wide motion (all turned off for reduced-motion visitors) ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Each page fades up into place on navigation (app/template.tsx). Only a "from" frame, so
+     nothing is left applied afterwards. */
+  .page-enter {
+    animation: page-enter 0.7s var(--ease) both;
+  }
+
+  /* Arrows inside buttons and links nudge forward on hover. */
+  .btn [aria-hidden='true'],
+  .nudge [aria-hidden='true'] {
+    display: inline-block;
+    transition: transform 0.3s var(--ease);
+  }
+  .btn:hover [aria-hidden='true'],
+  .nudge:hover [aria-hidden='true'] {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* Generic "fade up" for headings and text on page load; stagger with --d. */
+.fade-up {
+  animation: fade-up 0.9s var(--ease) var(--d, 0s) backwards;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+}
+
+/* Thin progress line across the top of the screen, driven by the page scroll itself (no JS).
+   Browsers without scroll-driven animations simply don't show it. */
+.scroll-progress {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress {
+      display: block;
+      position: fixed;
+      inset: 0 0 auto;
+      height: 2px;
+      z-index: 60;
+      pointer-events: none;
+      transform-origin: 0 50%;
+      background: linear-gradient(90deg, var(--color-primary-hover), #c9c0ff);
+      animation: grow-x linear both;
+      animation-timeline: scroll(root);
+    }
+
+    /* Tiles rise in as they enter the screen, driven by their own scroll position. Cheap even for
+       long image grids: no observers or scroll listeners. */
+    .tile-in {
+      animation: tile-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 75%;
+    }
+  }
+}
+
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes tile-in {
+  from {
+    opacity: 0;
+    transform: translateY(48px) scale(0.96);
+  }
+}
+
 :focus-visible {
   outline: 2px solid var(--color-primary-hover);
   outline-offset: 3px;
@@ -115,6 +202,9 @@ button {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .fade-up {
+    animation: none;
   }
   *,
   *::before,

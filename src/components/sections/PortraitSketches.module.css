@@ -33,7 +33,17 @@
   box-shadow:
     0 30px 60px -20px rgba(0, 0, 0, 0.85),
     0 0 0 1px rgba(255, 255, 255, 0.06);
-  will-change: transform, opacity, filter;
+  will-change: transform, opacity;
+}
+
+/* Shade over sketches lower in the pile; only its opacity changes while scrolling. */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: var(--shade, 0);
+  pointer-events: none;
 }
 
 .card img {
@@ -107,6 +117,31 @@
 }
 
 @media (max-width: 720px) {
+  /* Swipe through the sketches one at a time instead of a long single-column stack. */
+  .portraits--static {
+    padding: 2rem 0 3rem;
+  }
+  .grid {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding: 0.5rem 14vw 1rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+  .gridCard {
+    flex: none;
+    width: 72vw;
+    scroll-snap-align: center;
+  }
+  .gridCard img {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    box-shadow: 0 24px 40px -20px rgba(0, 0, 0, 0.8);
+  }
   .card {
     height: min(56svh, 520px);
   }

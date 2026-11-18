@@ -62,4 +62,27 @@
   .art__track {
     gap: 0.75rem;
   }
+  /* Unpinned on phones: a snap carousel of clips at full card width, sized by their own ratio. */
+  .art:not(.art--pinned) .art__stage {
+    padding: 2rem 0 3rem;
+  }
+  .art:not(.art--pinned) .art__viewport {
+    height: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .art:not(.art--pinned) .art__viewport::-webkit-scrollbar {
+    display: none;
+  }
+  .art:not(.art--pinned) .art__track {
+    height: auto;
+    align-items: center;
+    padding: 0 9vw;
+  }
+  .art:not(.art--pinned) .art__track > * {
+    width: 82vw;
+    height: auto;
+    max-height: 70svh;
+    scroll-snap-align: center;
+  }
 }

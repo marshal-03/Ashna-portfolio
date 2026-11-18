@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import Image from 'next/image'
 import { weddingWorks as works } from '@/data/wedding'
-import { useReducedMotion } from '@/hooks/useMediaQuery'
+import { usePhone, useReducedMotion } from '@/hooks/useMediaQuery'
 import ImageLightbox from '@/components/work/ImageLightbox'
 import SectionIntro from './SectionIntro'
 import s from './WeddingGallery.module.css'
@@ -33,9 +33,10 @@ function layout(vw: number, vh: number) {
     run += i === 0 ? w / 2 : widths[i - 1]! / 2 + gap + w / 2
     centres.push(run)
   })
-  const circumference = run + widths[widths.length - 1]! / 2 + gap + widths[0]! / 2
+  // Card 0 starts at arc 0 (its centre is at w0/2), so the loop closes one gap after the last card.
+  const circumference = run + widths[widths.length - 1]! / 2 + gap
   const radius = circumference / (2 * Math.PI)
-  return { cardH, widths, centres, circumference, radius, scrollLength: circumference * 0.45 }
+  return { cardH, widths, centres, circumference, radius, scrollLength: circumference * 0.3 }
 }
 
 function ringState(progress: number, centres: number[], circumference: number, radius: number) {
@@ -68,7 +69,9 @@ export default function WeddingGallery() {
   const [size, setSize] = useState({ vw: 1440, vh: 900 })
   const [activeIndex, setActiveIndex] = useState(0)
   const [open, setOpen] = useState<number | null>(null)
-  const pinned = !useReducedMotion()
+  const phone = usePhone()
+  // Phones get a swipeable carousel instead of the pinned 3D ring (which left big empty bands).
+  const pinned = !useReducedMotion() && !phone
   const geometry = useMemo(() => layout(size.vw, size.vh), [size.vw, size.vh])
   const { cardH, widths, centres, circumference, radius, scrollLength } = geometry
 
@@ -148,8 +151,9 @@ export default function WeddingGallery() {
                   alt={work.title}
                   width={work.width}
                   height={work.height}
-                  sizes="320px"
+                  sizes="(max-width: 720px) 80vw, 320px"
                 />
+                <span className={s.rowCard__title}>{work.title}</span>
               </button>
             ))}
           </div>

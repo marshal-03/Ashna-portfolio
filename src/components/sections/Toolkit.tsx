@@ -1,5 +1,6 @@
 import { tools } from '@/data/portfolio'
 import Marquee from '@/components/ui/Marquee'
+import SplitText from '@/components/ui/SplitText'
 import s from './Toolkit.module.css'
 
 // Rendered inside the Event Design frame so both share one background.
@@ -7,7 +8,7 @@ import s from './Toolkit.module.css'
 export default function Toolkit() {
   return (
     <div id="toolkit" className={s.toolkit}>
-      <h2 className={s.toolkit__title}>My Creative Toolkit</h2>
+      <SplitText className={s.toolkit__title} text="My Creative Toolkit" />
 
       <Marquee copies={4} secondsPerCopy={30} direction="right" label="Software I use">
         <ul className={s.toolkit__list}>

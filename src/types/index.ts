@@ -7,6 +7,31 @@ export interface Profile {
   bio: string
   email: string
   resumeUrl: string
+  /** WhatsApp number with country code, digits only (e.g. "919876543210"). Empty hides the button. */
+  whatsapp?: string
+  /** City / region, e.g. "Kochi, Kerala". Empty hides it. */
+  location?: string
+  /** Short availability note, e.g. "Taking projects from January". Empty hides it. */
+  availability?: string
+}
+
+export interface Service {
+  title: string
+  text: string
+  /** Key into the icon set in components/sections/Services.tsx. */
+  icon: 'stage' | 'arch' | 'desk' | 'badge' | 'wedding' | 'cube'
+}
+
+export interface ProcessStep {
+  title: string
+  text: string
+}
+
+export interface Testimonial {
+  quote: string
+  name: string
+  /** Role and company, e.g. "Producer, XYZ Events". */
+  role: string
 }
 
 export type SocialKind = 'linkedin' | 'instagram' | 'artstation'

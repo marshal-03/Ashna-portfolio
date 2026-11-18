@@ -69,6 +69,9 @@ for folder, (bslug, bname, subtitle) in BRANDS.items():
         zone_key = rel[0].lower() if len(rel) > 1 else "stage"
         zone = ZONE_NAMES.get(zone_key, title(zone_key).title())
         kind = "graphic" if "graphics" in [p.lower() for p in rel[:-1]] else "render"
+        # Files named with a print size ("31x14.9ft", "20x16") are flat LED/print artwork.
+        if re.search(r"\d+(\.\d+)?\s*x\s*\d+", f.stem, re.I):
+            kind = "graphic"
         if folder == "tata tea" and len(rel) == 1:
             kind = "render"
 

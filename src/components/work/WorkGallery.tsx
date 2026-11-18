@@ -15,7 +15,7 @@ export default function WorkGallery({ zones }: { zones: WorkZone[] }) {
     <button
       key={item.src}
       type="button"
-      className={graphic ? `${s.shot} ${s['shot--graphic']}` : s.shot}
+      className={`${graphic ? `${s.shot} ${s['shot--graphic']}` : s.shot} tile-in`}
       onClick={() => setOpen(allItems.indexOf(item))}
     >
       <Image
@@ -37,7 +37,7 @@ export default function WorkGallery({ zones }: { zones: WorkZone[] }) {
         return (
           <section key={zone.slug} id={zone.slug} className={s.zone}>
             <div className="container">
-              <h2 className={s.zone__title}>
+              <h2 className={`${s.zone__title} tile-in`}>
                 {zone.name}
                 <span>{zone.items.length}</span>
               </h2>

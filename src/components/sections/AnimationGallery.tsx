@@ -2,10 +2,17 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { artPieces } from '@/data/portfolio'
-import { useReducedMotion } from '@/hooks/useMediaQuery'
+import { usePhone, useReducedMotion } from '@/hooks/useMediaQuery'
 import ArtCard from '@/components/ui/ArtCard'
 import SectionIntro from './SectionIntro'
 import s from './AnimationGallery.module.css'
+
+// Scroll needed per pixel of sideways travel (below 1 = the strip moves faster than the page).
+const SCROLL_PER_PX = 0.45
+// Mainly a 2D designer: 2D clips first, then the 3D work.
+const pieces = [...artPieces].sort(
+  (a, b) => Number(a.category !== '2D Animation') - Number(b.category !== '2D Animation'),
+)
 
 /*
  * Scroll-driven horizontal gallery: the section is made as tall as the track is wide, the stage
@@ -17,7 +24,9 @@ export default function AnimationGallery() {
   const track = useRef<HTMLDivElement>(null)
   const bar = useRef<HTMLSpanElement>(null)
   const [distance, setDistance] = useState(0)
-  const pinned = !useReducedMotion()
+  const phone = usePhone()
+  // Phones swipe the clips sideways instead of scrolling a long pinned track.
+  const pinned = !useReducedMotion() && !phone
 
   useEffect(() => {
     let frame = 0
@@ -30,7 +39,7 @@ export default function AnimationGallery() {
       const el = section.current
       if (!el || !pinned) return
       const progress = travel
-        ? Math.min(1, Math.max(0, -el.getBoundingClientRect().top / travel))
+        ? Math.min(1, Math.max(0, -el.getBoundingClientRect().top / (travel * SCROLL_PER_PX)))
         : 0
       if (progress === last) return
       last = progress
@@ -78,12 +87,14 @@ export default function AnimationGallery() {
         id="art-gallery"
         ref={section}
         className={pinned ? `${s.art} ${s['art--pinned']}` : s.art}
-        style={{ height: pinned ? `calc(100svh + ${distance}px)` : 'auto' }}
+        style={{
+          height: pinned ? `calc(100svh + ${Math.round(distance * SCROLL_PER_PX)}px)` : 'auto',
+        }}
       >
         <div className={s.art__stage}>
           <div ref={viewport} className={s.art__viewport}>
             <div ref={track} className={s.art__track}>
-              {artPieces.map((piece) => (
+              {pieces.map((piece) => (
                 <ArtCard key={piece.url} piece={piece} />
               ))}
             </div>

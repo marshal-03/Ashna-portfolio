@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import Image from 'next/image'
 import { portraits } from '@/data/portraits'
-import { useReducedMotion } from '@/hooks/useMediaQuery'
+import { usePhone, useReducedMotion } from '@/hooks/useMediaQuery'
 import ImageLightbox from '@/components/work/ImageLightbox'
 import SectionIntro from './SectionIntro'
 import s from './PortraitSketches.module.css'
@@ -35,8 +35,9 @@ function cardStyle(i: number, arr: number[]): CSSProperties {
       `translate(-50%, -50%) translate3d(0, ${((1 - a) * 110).toFixed(2)}vh, 0) ` +
       `rotate(${(TILT[i % TILT.length]! * a + (1 - a) * 8).toFixed(2)}deg) ` +
       `scale(${(1 - Math.min(covered, 3) * 0.04).toFixed(3)})`,
-    filter: `brightness(${(1 - Math.min(covered, 3) * 0.12).toFixed(2)})`,
-  }
+    // Darkness of the overlay on cards that have others on top (cheaper than a brightness filter).
+    '--shade': (Math.min(covered, 3) * 0.12).toFixed(2),
+  } as CSSProperties
 }
 
 const topmost = (arr: number[]) => arr.reduce((count, a, i) => (a > 0.5 ? i : count), 0)
@@ -46,7 +47,9 @@ export default function PortraitSketches() {
   const cardRefs = useRef<(HTMLButtonElement | null)[]>([])
   const [landed, setLanded] = useState(0)
   const [open, setOpen] = useState<number | null>(null)
-  const pinned = !useReducedMotion()
+  const phone = usePhone()
+  // Phones get a swipeable carousel instead of the pinned pile (several screens of scrolling).
+  const pinned = !useReducedMotion() && !phone
   const n = portraits.length
 
   // Scrolling rewrites each card's style directly; React only re-renders when the top card changes.
@@ -68,7 +71,7 @@ export default function PortraitSketches() {
         const st = cardStyle(i, arr)
         card.style.opacity = String(st.opacity)
         card.style.transform = String(st.transform)
-        card.style.filter = String(st.filter)
+        card.style.setProperty('--shade', String((st as Record<string, string>)['--shade']))
         card.tabIndex = a > 0.5 ? 0 : -1
       })
       setLanded(topmost(arr))
@@ -121,7 +124,7 @@ export default function PortraitSketches() {
                   alt={p.title}
                   width={p.width}
                   height={p.height}
-                  sizes="(max-width: 720px) 90vw, 30vw"
+                  sizes="(max-width: 720px) 75vw, 30vw"
                 />
                 <span>
                   {p.title} · {p.medium}
@@ -142,7 +145,7 @@ export default function PortraitSketches() {
         id="portraits-gallery"
         ref={section}
         className={s.portraits}
-        style={{ height: `${100 + (n - 1) * 80}svh` }}
+        style={{ height: `${100 + (n - 1) * 45}svh` }}
       >
         <div className={s.stage}>
           <div className={s.pile}>

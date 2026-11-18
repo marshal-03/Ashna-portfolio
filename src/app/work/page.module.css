@@ -1,0 +1,110 @@
+.page {
+  padding-bottom: var(--section-gap);
+  background:
+    radial-gradient(ellipse 60% 40% at 85% 0%, rgba(70, 60, 190, 0.3), transparent 70%),
+    radial-gradient(ellipse 55% 35% at 10% 40%, rgba(50, 40, 150, 0.18), transparent 70%),
+    var(--color-bg);
+}
+
+.head {
+  padding-top: clamp(7rem, 14vw, 10rem);
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.back {
+  display: inline-block;
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+}
+
+.back:hover {
+  color: #fff;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 9vw, 6.5rem);
+  line-height: 1.02;
+  margin-top: 0.6rem;
+}
+
+.lede {
+  max-width: 40rem;
+  margin-top: 1rem;
+  color: var(--color-muted);
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.brands {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.brands > * {
+  height: 100%;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition:
+    transform 0.35s var(--ease),
+    border-color 0.35s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(140, 133, 255, 0.5);
+}
+
+.card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.card__media img {
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.card:hover .card__media img {
+  transform: scale(1.05);
+}
+
+.card__body {
+  padding: 1.1rem 1.25rem 1.3rem;
+}
+
+.card__name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+  line-height: 1.15;
+}
+
+.card__meta {
+  margin-top: 0.35rem;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+}
+
+.card__cta {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.88rem;
+  color: #b9b4e6;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.card:hover .card__cta {
+  color: #fff;
+}

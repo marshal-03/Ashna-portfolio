@@ -49,6 +49,28 @@
   margin-top: 3rem;
 }
 
+/* Phones: a compact frame, and the title lines rise into place once when it scrolls into view. */
+.intro--rise .stage {
+  padding: 3.5rem var(--gutter) 3rem;
+}
+
+.intro--rise .title {
+  margin-top: 1.5rem;
+}
+
+.intro--rise .line {
+  opacity: 0;
+  transform: translate3d(0, 0.6em, 0);
+  transition:
+    transform 1s var(--ease),
+    opacity 0.8s var(--ease);
+}
+
+.intro--rise.intro--in .line {
+  opacity: 1;
+  transform: none;
+}
+
 .line {
   display: block;
   white-space: nowrap;
