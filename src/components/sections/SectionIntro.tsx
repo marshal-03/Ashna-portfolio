@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, type ReactNode } from 'react'
-import { usePhone, useReducedMotion } from '@/hooks/useMediaQuery'
+import { useMounted, usePhone, useReducedMotion } from '@/hooks/useMediaQuery'
 import s from './SectionIntro.module.css'
 
 /*
@@ -35,8 +35,9 @@ export default function SectionIntro({
   const phone = usePhone()
   // Phones skip the 2–2.6 screen pinned scroll (it left a lot of empty scrolling); the title just
   // rises into place once it comes into view.
-  const pinned = !reduced && !phone
-  const rise = !reduced && phone
+  const mounted = useMounted()
+  const pinned = mounted && !reduced && !phone
+  const rise = mounted && !reduced && phone
   const hasTop = Boolean(top)
 
   useEffect(() => {

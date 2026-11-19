@@ -1,6 +1,13 @@
 'use client'
 
-import { useEffect, useRef, type CSSProperties, type ElementType, type ReactNode } from 'react'
+import {
+  Fragment,
+  useEffect,
+  useRef,
+  type CSSProperties,
+  type ElementType,
+  type ReactNode,
+} from 'react'
 import s from './SplitText.module.css'
 
 /**
@@ -51,15 +58,20 @@ export default function SplitText({
           const italic = word.startsWith('*') && word.endsWith('*')
           const clean = italic ? word.slice(1, -1) : word
           const i = n++
+          // The space sits between the clipped word boxes: inside an inline-block it would
+          // collapse and run the words together ("MyCreativeToolkit").
           return (
-            <span key={wi} className={s.mask}>
-              <span
-                className={s.word}
-                style={{ '--i': i, '--stagger': `${stagger}ms` } as CSSProperties}
-              >
-                {italic ? <em>{clean}</em> : clean}
-              </span>{' '}
-            </span>
+            <Fragment key={wi}>
+              {wi > 0 && ' '}
+              <span className={s.mask}>
+                <span
+                  className={s.word}
+                  style={{ '--i': i, '--stagger': `${stagger}ms` } as CSSProperties}
+                >
+                  {italic ? <em>{clean}</em> : clean}
+                </span>
+              </span>
+            </Fragment>
           )
         })}
     </span>
