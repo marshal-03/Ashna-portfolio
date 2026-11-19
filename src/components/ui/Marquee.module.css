@@ -32,3 +32,20 @@
   -webkit-user-drag: none;
   pointer-events: none;
 }
+
+/* Before the page's scripts start (slow phones), the strip still drifts on its own with a plain
+   CSS animation. Once the script runs it adds .live and takes over with the swipeable version. */
+@media (prefers-reduced-motion: no-preference) {
+  .scroller:not(.live) .track {
+    animation: drift var(--dur, 30s) linear infinite;
+  }
+  .scroller:not(.live) .track--right {
+    animation-direction: reverse;
+  }
+}
+
+@keyframes drift {
+  to {
+    transform: translateX(var(--shift, -25%));
+  }
+}

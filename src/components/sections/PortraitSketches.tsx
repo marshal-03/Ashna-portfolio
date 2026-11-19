@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import Image from 'next/image'
 import { portraits } from '@/data/portraits'
-import { usePhone, useReducedMotion } from '@/hooks/useMediaQuery'
+import { useMounted, usePhone, useReducedMotion } from '@/hooks/useMediaQuery'
 import ImageLightbox from '@/components/work/ImageLightbox'
 import SectionIntro from './SectionIntro'
 import s from './PortraitSketches.module.css'
@@ -49,7 +49,9 @@ export default function PortraitSketches() {
   const [open, setOpen] = useState<number | null>(null)
   const phone = usePhone()
   // Phones get a swipeable carousel instead of the pinned pile (several screens of scrolling).
-  const pinned = !useReducedMotion() && !phone
+  const mounted = useMounted()
+  const reduced = useReducedMotion()
+  const pinned = mounted && !reduced && !phone
   const n = portraits.length
 
   // Scrolling rewrites each card's style directly; React only re-renders when the top card changes.

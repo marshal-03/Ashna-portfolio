@@ -42,7 +42,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${poppins.variable}`}>
+    // Browsers such as Chrome on iOS add their own attributes to <html> before React loads
+    // (e.g. __gcrremoteframetoken); don't report those as hydration mismatches.
+    <html lang="en" className={`${playfair.variable} ${poppins.variable}`} suppressHydrationWarning>
       <body>
         <div className="scroll-progress" aria-hidden="true" />
         <Header />

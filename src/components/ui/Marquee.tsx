@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, type ReactNode } from 'react'
+import { useEffect, useRef, type CSSProperties, type ReactNode } from 'react'
 import s from './Marquee.module.css'
 
 /**
@@ -44,6 +44,7 @@ export default function Marquee({
     if (!el || !inner) return
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    el.classList.add(s.live!) // hand over from the CSS fallback drift
     const copyWidth = () => inner.scrollWidth / copies
     let pos = copyWidth() // start one copy in, so there's room to move both ways
     el.scrollLeft = pos
@@ -199,7 +200,12 @@ export default function Marquee({
       className={className ? `${s.scroller} ${className}` : s.scroller}
       aria-label={label}
     >
-      <div ref={track} className={s.track}>
+      <div
+        ref={track}
+        className={direction === 'right' ? `${s.track} ${s['track--right']}` : s.track}
+        // One copy's share of the track, and its duration, for the CSS fallback drift.
+        style={{ '--shift': `${-100 / copies}%`, '--dur': `${secondsPerCopy}s` } as CSSProperties}
+      >
         {Array.from({ length: copies }, (_, n) => (
           <div key={n} className={s.copy} aria-hidden={n > 0 || undefined}>
             {children}

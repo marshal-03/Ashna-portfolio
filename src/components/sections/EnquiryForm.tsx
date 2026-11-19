@@ -48,14 +48,16 @@ export default function EnquiryForm() {
   }
 
   return (
-    <form className={s.form} onSubmit={onSubmit}>
+    // suppressHydrationWarning: Chrome on iOS tags forms and fields for autofill (__gcruniqueid)
+    // before React loads. Only those attribute differences are ignored.
+    <form className={s.form} onSubmit={onSubmit} suppressHydrationWarning>
       <label>
         <span>Your name</span>
-        <input name="name" required autoComplete="name" />
+        <input name="name" required autoComplete="name" suppressHydrationWarning />
       </label>
       <label>
         <span>Event type</span>
-        <select name="type" defaultValue={EVENT_TYPES[0]}>
+        <select name="type" defaultValue={EVENT_TYPES[0]} suppressHydrationWarning>
           {EVENT_TYPES.map((t) => (
             <option key={t}>{t}</option>
           ))}
@@ -63,13 +65,14 @@ export default function EnquiryForm() {
       </label>
       <label>
         <span>Event date (optional)</span>
-        <input name="date" type="date" />
+        <input name="date" type="date" suppressHydrationWarning />
       </label>
       <label className={s.form__wide}>
         <span>What do you need?</span>
         <textarea
           name="message"
           required
+          suppressHydrationWarning
           rows={4}
           placeholder="Stage backdrop, entry arch, registration desk, invitations…"
         />

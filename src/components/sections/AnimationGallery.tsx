@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { artPieces } from '@/data/portfolio'
-import { usePhone, useReducedMotion } from '@/hooks/useMediaQuery'
+import { useMounted, usePhone, useReducedMotion } from '@/hooks/useMediaQuery'
 import ArtCard from '@/components/ui/ArtCard'
 import SectionIntro from './SectionIntro'
 import s from './AnimationGallery.module.css'
@@ -26,7 +26,9 @@ export default function AnimationGallery() {
   const [distance, setDistance] = useState(0)
   const phone = usePhone()
   // Phones swipe the clips sideways instead of scrolling a long pinned track.
-  const pinned = !useReducedMotion() && !phone
+  const mounted = useMounted()
+  const reduced = useReducedMotion()
+  const pinned = mounted && !reduced && !phone
 
   useEffect(() => {
     let frame = 0

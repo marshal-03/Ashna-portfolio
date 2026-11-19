@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import Image from 'next/image'
 import { weddingWorks as works } from '@/data/wedding'
-import { usePhone, useReducedMotion } from '@/hooks/useMediaQuery'
+import { useMounted, usePhone, useReducedMotion } from '@/hooks/useMediaQuery'
 import ImageLightbox from '@/components/work/ImageLightbox'
 import SectionIntro from './SectionIntro'
 import s from './WeddingGallery.module.css'
@@ -71,7 +71,9 @@ export default function WeddingGallery() {
   const [open, setOpen] = useState<number | null>(null)
   const phone = usePhone()
   // Phones get a swipeable carousel instead of the pinned 3D ring (which left big empty bands).
-  const pinned = !useReducedMotion() && !phone
+  const mounted = useMounted()
+  const reduced = useReducedMotion()
+  const pinned = mounted && !reduced && !phone
   const geometry = useMemo(() => layout(size.vw, size.vh), [size.vw, size.vh])
   const { cardH, widths, centres, circumference, radius, scrollLength } = geometry
 
